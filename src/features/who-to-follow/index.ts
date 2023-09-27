@@ -1,0 +1,1 @@
+export { default as WhoToFollowWidget } from './components/WhoToFollowWidget.vue';

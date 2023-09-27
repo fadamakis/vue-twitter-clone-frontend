@@ -9,6 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^20.5.1",
+    "autoprefixer": "^10.4.15",
+    "bootstrap-icons": "^1.10.5",
+    "postcss": "^8.4.28",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "vite-svg-loader": "^4.0.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
