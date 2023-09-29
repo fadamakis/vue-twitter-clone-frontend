@@ -1,5 +1,6 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
+import { UserAvatar } from "@/features/profile";
 const tweets = [
   {
     user: {
@@ -67,7 +68,7 @@ const tweets = [
 <template>
   <div class="tweet-list">
     <a href="" class="tweet" v-for="tweet in tweets">
-      <img class="user-avatar" :src="tweet.user.image" alt="" />
+      <UserAvatar :img="tweet.user.image" class="user-avatar" />
       <div class="tweet-content">
         <div class="tweet-info">
           <span class="tweet-info-name">{{ tweet.user.name }}</span>
@@ -104,9 +105,6 @@ const tweets = [
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   margin-right: 12px;
 }
 

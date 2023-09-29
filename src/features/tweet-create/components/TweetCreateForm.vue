@@ -1,6 +1,8 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
 import AppButton from "@/components/AppButton.vue";
+import { UserAvatar } from "@/features/profile";
+
 const userInfo = {
   name: "John Doe",
   handle: "@johndoe",
@@ -9,7 +11,7 @@ const userInfo = {
 </script>
 <template>
   <div class="tweet-creation-form">
-    <img class="user-avatar" :src="userInfo.image" alt="" />
+    <UserAvatar :img="userInfo.image" class="user-avatar" />
 
     <div class="tweet-creation-content">
       <textarea class="tweet-input" placeholder="What's happening?" rows="1" cols="50" />
@@ -41,9 +43,6 @@ const userInfo = {
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   margin-right: 12px;
 }
 

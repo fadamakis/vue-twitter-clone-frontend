@@ -1,11 +1,12 @@
+<script setup lang="ts">
+import UserAvatar from "./UserAvatar.vue";
+</script>
+
 <template>
   <a href="#" class="profile-card">
-    <div class="profile-card-image">
-      <img
-        src="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg"
-        alt=""
-      />
-    </div>
+    <UserAvatar
+      img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg"
+    />
     <div class="profile-card-user-info">
       <p class="profile-card-name">Fotis Adamakis</p>
       <p class="profile-card-username">@fadamakis</p>
@@ -18,14 +19,6 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
-}
-
-.profile-card-image {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .profile-card-user-info {
