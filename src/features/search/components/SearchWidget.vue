@@ -2,7 +2,6 @@
 
 <template>
   <input type="search" name="search" placeholder="Search" class="search-input" />
-  <SearchIcon />
 </template>
 
 <style lang="scss" scoped>

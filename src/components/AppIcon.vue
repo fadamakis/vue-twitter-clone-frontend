@@ -19,7 +19,7 @@ defineProps({
   },
   size: {
     type: String as PropType<keyof typeof IconSizes>,
-    default: IconSizes.md,
+    default: "md",
   },
 });
 </script>
