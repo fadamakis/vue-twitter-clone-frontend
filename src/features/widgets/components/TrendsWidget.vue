@@ -45,19 +45,19 @@ const trends = [
 
 <style lang="scss" scoped>
 .trend {
-  font-size: 13px;
+  font-size: $font-size-0;
   color: #536471;
   margin-bottom: 16px;
 }
 
 .trend-hashtag {
-  font-size: 15px;
+  font-size: $font-size-1;
   font-weight: bold;
   color: $color-dark;
 }
 .cta {
   color: $color-primary;
-  font-size: 13px;
+  font-size: $font-size-0;
   font-weight: bold;
   margin-top: spacing(3);
 }

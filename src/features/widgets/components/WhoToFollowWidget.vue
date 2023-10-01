@@ -21,7 +21,7 @@ import ProfileCard from "@/features/profile/components/ProfileCard.vue";
 <style lang="scss" scoped>
 .cta {
   color: $color-primary;
-  font-size: 13px;
+  font-size: $font-size-0;
   font-weight: bold;
   margin-top: spacing(3);
 }

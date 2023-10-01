@@ -49,7 +49,7 @@ const userInfo = {
 .tweet-input {
   width: 100%;
   border: none;
-  font-size: 18px;
+  font-size: $font-size-2;
   resize: none;
   outline: none;
   padding: spacing(1) 0;
@@ -64,7 +64,7 @@ const userInfo = {
   flex: 1;
   gap: 0 spacing(5);
   color: $color-gray;
-  font-size: 18px;
+  font-size: $font-size-2;
   fill: $color-primary;
 }
 </style>

@@ -49,19 +49,19 @@ defineProps({
   outline: 0;
   &.sm {
     padding: spacing(2) spacing(4);
-    font-size: 14px;
+    font-size: $font-size-0;
   }
   &.md {
     padding: spacing(3) spacing(8);
-    font-size: 16px;
+    font-size: $font-size-1;
   }
   &.lg {
     padding: spacing(4) spacing(10);
-    font-size: 18px;
+    font-size: $font-size-2;
   }
   &.xl {
     padding: spacing(5) spacing(12);
-    font-size: 20px;
+    font-size: $font-size-3;
   }
   &.primary {
     background: $color-primary;

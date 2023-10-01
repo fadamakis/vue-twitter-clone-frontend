@@ -125,16 +125,16 @@ const tweets = [
   align-items: center;
   gap: 0 spacing(1);
   color: $color-gray;
-  font-size: 15px;
+  font-size: $font-size-0;
 }
 
 .tweet-info-name {
-  font-size: 16px;
+  font-size: $font-size-1;
   font-weight: bold;
   color: $color-dark;
 }
 .tweet-body {
-  font-size: 15px;
+  font-size: $font-size-0;
   line-height: 1.4;
   color: $color-dark;
 }

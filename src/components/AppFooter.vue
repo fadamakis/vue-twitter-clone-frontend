@@ -15,7 +15,7 @@
 
 <style lang="scss" scoped>
 .footer {
-  font-size: 13px;
+  font-size: $font-size-0;
   color: $color-gray;
 }
 

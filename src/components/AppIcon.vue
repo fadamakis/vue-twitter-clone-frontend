@@ -39,25 +39,25 @@ defineProps({
 }
 .icon-size {
   &-sm {
-    font-size: 0.75rem;
+    font-size: $font-size-0;
   }
   &-md {
-    font-size: 1rem;
+    font-size: $font-size-1;
   }
   &-lg {
-    font-size: 1.5rem;
+    font-size: $font-size-2;
   }
   &-2x {
-    font-size: 2rem;
+    font-size: $font-size-3;
   }
   &-3x {
-    font-size: 3rem;
+    font-size: $font-size-4;
   }
   &-4x {
-    font-size: 4rem;
+    font-size: $font-size-5;
   }
   &-5x {
-    font-size: 5rem;
+    font-size: $font-size-6;
   }
 }
 </style>

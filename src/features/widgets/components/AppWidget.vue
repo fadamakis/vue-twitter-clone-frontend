@@ -23,7 +23,7 @@ defineProps({
   margin: spacing(4) 0;
 }
 .app-widget-title {
-  font-size: 1.2rem;
+  font-size: $font-size-2;
   font-weight: bold;
   margin-bottom: spacing(4);
 }

@@ -26,7 +26,7 @@ import UserAvatar from "./UserAvatar.vue";
   display: flex;
   flex: 1;
   flex-direction: column;
-  font-size: 14px;
+  font-size: $font-size-0;
   margin-left: spacing(3);
   padding-right: spacing(3);
   color: $color-dark;

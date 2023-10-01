@@ -70,7 +70,7 @@ const routes = [
   align-items: center;
   padding: spacing(3);
   border-radius: $border-radius-pill;
-  font-size: 19px;
+  font-size: $font-size-3;
   color: $color-dark;
 }
 
