@@ -10,7 +10,7 @@
   margin-top: spacing(3);
   background: $color-light;
   padding: spacing(3) spacing(5);
-  border-radius: 30px;
+  border-radius: $border-radius-pill;
   outline: 0;
 }
 </style>

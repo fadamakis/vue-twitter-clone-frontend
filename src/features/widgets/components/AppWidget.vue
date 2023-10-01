@@ -18,7 +18,7 @@ defineProps({
 <style lang="scss" scoped>
 .app-widget {
   background-color: $color-light;
-  border-radius: 15px;
+  border-radius: $border-radius;
   padding: spacing(4);
   margin: spacing(4) 0;
 }

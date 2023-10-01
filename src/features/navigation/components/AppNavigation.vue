@@ -69,7 +69,7 @@ const routes = [
   display: flex;
   align-items: center;
   padding: spacing(3);
-  border-radius: 30px;
+  border-radius: $border-radius-pill;
   font-size: 19px;
   color: $color-dark;
 }

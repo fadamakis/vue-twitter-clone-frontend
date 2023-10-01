@@ -140,7 +140,7 @@ const tweets = [
 }
 .tweet-media {
   margin: spacing(3) 0;
-  border-radius: 14px;
+  border-radius: $border-radius;
   overflow: hidden;
 }
 

@@ -43,7 +43,7 @@ defineProps({
   background: $color-primary;
   color: $color-light;
   border: none;
-  border-radius: spacing(8);
+  border-radius: $border-radius-pill;
   font-weight: bold;
   cursor: pointer;
   outline: 0;

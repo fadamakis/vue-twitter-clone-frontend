@@ -16,7 +16,7 @@ defineProps({
   width: spacing(10);
   height: spacing(10);
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: $border-radius-circle;
   overflow: hidden;
 }
 </style>
