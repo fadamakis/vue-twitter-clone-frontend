@@ -20,6 +20,10 @@ const tweets = [
         "https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg",
     },
     body: "Hello World!",
+    media: {
+      src:
+        "https://miro.medium.com/v2/resize:fit:720/format:webp/1*X2J_rGWvaf0yQ4avdKAEJw.png",
+    },
     date: "16 April",
   },
   {
@@ -79,6 +83,9 @@ const tweets = [
         <p class="tweet-body">
           {{ tweet.body }}
         </p>
+        <div class="tweet-media" v-if="tweet.media">
+          <img :src="tweet.media.src" alt="" />
+        </div>
         <div class="tweet-actions">
           <AppIcon icon="chat" />
           <AppIcon icon="repeat" />
@@ -130,6 +137,11 @@ const tweets = [
   color: rgb(15, 20, 25);
   font-size: 15px;
   line-height: 1.4;
+}
+.tweet-media {
+  margin: 12px 0;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .tweet-actions {
