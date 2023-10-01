@@ -11,6 +11,7 @@ import UserAvatar from "./UserAvatar.vue";
       <p class="profile-card-name">Fotis Adamakis</p>
       <p class="profile-card-username">@fadamakis</p>
     </div>
+    <slot name="action" />
   </a>
 </template>
 
@@ -23,9 +24,11 @@ import UserAvatar from "./UserAvatar.vue";
 
 .profile-card-user-info {
   display: flex;
+  flex: 1;
   flex-direction: column;
   font-size: 14px;
   margin-left: 10px;
+  padding-right: 10px;
   color: #14171a;
 }
 

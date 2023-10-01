@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import AppWidget from "@/components/AppWidget.vue";
+import AppButton from "@/components/AppButton.vue";
 import ProfileCard from "@/features/profile/components/ProfileCard.vue";
 </script>
 
 <template>
   <AppWidget title="Who to follow">
     <div>
-      <ProfileCard v-for="i in 5" />
+      <ProfileCard v-for="i in 5">
+        <template #action>
+          <AppButton size="sm" color="dark">Follow</AppButton>
+        </template>
+      </ProfileCard>
     </div>
 
     <div class="cta">Show more</div>
