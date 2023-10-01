@@ -6,7 +6,7 @@
 .page-title {
   font-size: 24px;
   font-weight: bold;
-  margin: 10px;
+  margin: spacing(3);
   padding: 0;
 }
 </style>

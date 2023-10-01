@@ -57,31 +57,31 @@ const routes = [
   </nav>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .nav {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: spacing(3);
   flex: 1;
 }
 
 .link {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: spacing(3);
   border-radius: 30px;
   font-size: 19px;
-  color: rgba(15, 20, 25, 1);
+  color: $color-dark;
 }
 
 .link:hover {
-  background-color: rgba(15, 20, 25, 0.1);
+  background-color: $color-light-hover;
 }
 .icon {
-  margin-right: 16px;
+  margin-right: spacing(4);
 }
 
 .button {
-  margin-top: 20px;
+  margin-top: spacing(5);
 }
 </style>

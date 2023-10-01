@@ -106,13 +106,13 @@ const tweets = [
 
 .tweet {
   display: flex;
-  padding: 20px;
-  color: rgba(15, 20, 25, 1);
-  border-bottom: 1px solid rgba(15, 20, 25, 0.1);
+  padding: spacing(4);
+  color: $color-dark;
+  border-bottom: 1px solid $color-border;
 }
 
 .user-avatar {
-  margin-right: 12px;
+  margin-right: spacing(3);
 }
 
 .tweet-content {
@@ -123,23 +123,23 @@ const tweets = [
 .tweet-info {
   display: flex;
   align-items: center;
-  gap: 0 4px;
-  color: #7a7a7a;
+  gap: 0 spacing(1);
+  color: $color-gray;
   font-size: 15px;
 }
 
 .tweet-info-name {
   font-size: 16px;
   font-weight: bold;
-  color: rgba(15, 20, 25, 1);
+  color: $color-dark;
 }
 .tweet-body {
-  color: rgb(15, 20, 25);
   font-size: 15px;
   line-height: 1.4;
+  color: $color-dark;
 }
 .tweet-media {
-  margin: 12px 0;
+  margin: spacing(3) 0;
   border-radius: 14px;
   overflow: hidden;
 }
@@ -148,6 +148,6 @@ const tweets = [
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: spacing(3);
 }
 </style>

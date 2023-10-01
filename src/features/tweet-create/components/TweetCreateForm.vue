@@ -32,8 +32,8 @@ const userInfo = {
 <style lang="scss" scoped>
 .tweet-creation-form {
   display: flex;
-  padding: 10px 20px;
-  border-bottom: 1px solid rgba(15, 20, 25, 0.1);
+  padding: spacing(2) spacing(4);
+  border-bottom: 1px solid $color-border;
 }
 
 .tweet-creation-content {
@@ -43,7 +43,7 @@ const userInfo = {
 }
 
 .user-avatar {
-  margin-right: 12px;
+  margin-right: spacing(3);
 }
 
 .tweet-input {
@@ -52,7 +52,7 @@ const userInfo = {
   font-size: 18px;
   resize: none;
   outline: none;
-  padding: 6px 0;
+  padding: spacing(1) 0;
 }
 
 .tweet-actions {
@@ -62,9 +62,9 @@ const userInfo = {
 .tweet-actions-buttons {
   display: flex;
   flex: 1;
-  gap: 0 20px;
-  color: #7a7a7a;
+  gap: 0 spacing(5);
+  color: $color-gray;
   font-size: 18px;
-  fill: #33a1f2;
+  fill: $color-primary;
 }
 </style>

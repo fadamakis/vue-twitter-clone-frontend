@@ -16,11 +16,11 @@
 <style lang="scss" scoped>
 .footer {
   font-size: 13px;
-  color: #8899a6;
+  color: $color-gray;
 }
 
 .footer .link {
-  color: #8899a6;
+  color: $color-gray;
   margin-right: 6px;
 }
 </style>

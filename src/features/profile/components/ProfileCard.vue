@@ -15,9 +15,9 @@ import UserAvatar from "./UserAvatar.vue";
   </a>
 </template>
 
-<style>
+<style scoped lang="scss">
 .profile-card {
-  margin-top: 20px;
+  margin-top: spacing(5);
   display: flex;
   align-items: center;
 }
@@ -27,9 +27,9 @@ import UserAvatar from "./UserAvatar.vue";
   flex: 1;
   flex-direction: column;
   font-size: 14px;
-  margin-left: 10px;
-  padding-right: 10px;
-  color: #14171a;
+  margin-left: spacing(3);
+  padding-right: spacing(3);
+  color: $color-dark;
 }
 
 .profile-card-name {
@@ -37,6 +37,6 @@ import UserAvatar from "./UserAvatar.vue";
 }
 
 .profile-card-username {
-  color: #657786;
+  color: $color-gray;
 }
 </style>

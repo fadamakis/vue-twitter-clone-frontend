@@ -53,12 +53,12 @@ const trends = [
 .trend-hashtag {
   font-size: 15px;
   font-weight: bold;
-  color: #0f1419;
+  color: $color-dark;
 }
 .cta {
-  color: #1da1f2;
+  color: $color-primary;
   font-size: 13px;
   font-weight: bold;
-  margin-top: 12px;
+  margin-top: spacing(3);
 }
 </style>

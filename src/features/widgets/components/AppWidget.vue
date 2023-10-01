@@ -17,14 +17,14 @@ defineProps({
 
 <style lang="scss" scoped>
 .app-widget {
-  background-color: #f5f8fa;
+  background-color: $color-light;
   border-radius: 15px;
-  padding: 15px;
-  margin: 15px 0;
+  padding: spacing(4);
+  margin: spacing(4) 0;
 }
 .app-widget-title {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: spacing(4);
 }
 </style>

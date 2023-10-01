@@ -7,9 +7,9 @@
 <style lang="scss" scoped>
 .search-input {
   width: 100%;
-  margin-top: 10px;
-  background: #f5f8fa;
-  padding: 10px 16px 10px 30px;
+  margin-top: spacing(3);
+  background: $color-light;
+  padding: spacing(3) spacing(5);
   border-radius: 30px;
   outline: 0;
 }

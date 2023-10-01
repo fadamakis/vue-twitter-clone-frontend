@@ -20,9 +20,9 @@ import ProfileCard from "@/features/profile/components/ProfileCard.vue";
 
 <style lang="scss" scoped>
 .cta {
-  color: #1da1f2;
+  color: $color-primary;
   font-size: 13px;
   font-weight: bold;
-  margin-top: 12px;
+  margin-top: spacing(3);
 }
 </style>

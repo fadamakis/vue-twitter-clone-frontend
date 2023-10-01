@@ -5,8 +5,8 @@ import AppIcon from "./AppIcon.vue";
   <AppIcon icon="twitter" fill="black" size="2x" class="logo" />
 </template>
 
-<style>
+<style lang="scss">
 .logo {
-  margin: 0 12px;
+  margin: 0 spacing(3);
 }
 </style>

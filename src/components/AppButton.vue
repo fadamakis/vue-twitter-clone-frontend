@@ -35,73 +35,69 @@ defineProps({
 });
 </script>
 
-<style>
+<style lang="scss">
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #33a1f2;
-  color: white;
+  background: $color-primary;
+  color: $color-light;
   border: none;
-  border-radius: 30px;
+  border-radius: spacing(8);
   font-weight: bold;
   cursor: pointer;
   outline: 0;
-  &:hover {
-    background: #1b95e0;
-  }
   &.sm {
-    padding: 8px 16px;
+    padding: spacing(2) spacing(4);
     font-size: 14px;
   }
   &.md {
-    padding: 12px 32px;
+    padding: spacing(3) spacing(8);
     font-size: 16px;
   }
   &.lg {
-    padding: 16px 40px;
+    padding: spacing(4) spacing(10);
     font-size: 18px;
   }
   &.xl {
-    padding: 20px 48px;
+    padding: spacing(5) spacing(12);
     font-size: 20px;
   }
-
   &.primary {
-    background: #33a1f2;
+    background: $color-primary;
     &:hover {
-      background: #1b95e0;
+      background: $color-primary-hover;
     }
   }
   &.secondary {
-    background: #8899a6;
+    background: $color-secondary;
     &:hover {
-      background: #697787;
+      background: $color-secondary-hover;
     }
   }
   &.success {
-    background: #2dca73;
+    background: $color-success;
     &:hover {
-      background: #24b164;
+      background: $color-success-hover;
     }
   }
   &.danger {
-    background: #e0245e;
+    background: $color-danger;
     &:hover {
-      background: #c81e51;
+      background: $color-danger-hover;
     }
   }
   &.light {
-    background: #f5f8fa;
-    color: #14171a;
+    background: $color-light;
+    color: $color-dark;
     &:hover {
-      background: #e8f0f3;
+      background: $color-light-hover;
     }
   }
   &.dark {
-    background: #14171a;
+    background: $color-dark;
     &:hover {
-      background: #0d1117;
+      background: $color-dark-hover;
     }
   }
 }

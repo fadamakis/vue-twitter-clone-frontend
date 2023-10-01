@@ -13,8 +13,8 @@ defineProps({
 
 <style lang="scss" scoped>
 .profile-avatar {
-  width: 40px;
-  height: 40px;
+  width: spacing(10);
+  height: spacing(10);
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
