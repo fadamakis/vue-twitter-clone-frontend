@@ -1,8 +1,7 @@
 <script setup>
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
-import { TrendsWidget } from "@/features/trends";
-import { WhoToFollowWidget } from "@/features/who-to-follow";
+import { WhoToFollowWidget, TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { TweetList } from "@/features/timeline";
 import { TweetCreateForm } from "@/features/tweet-create";
@@ -20,3 +19,4 @@ import { TweetCreateForm } from "@/features/tweet-create";
     </template>
   </ThreeColumnLayout>
 </template>
+@/features/widgets

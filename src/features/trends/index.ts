@@ -1,1 +1,0 @@
-export { default as TrendsWidget } from './components/TrendsWidget.vue';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppWidget from "@/components/AppWidget.vue";
+import { AppWidget } from "@/features/widgets";
 import AppButton from "@/components/AppButton.vue";
 import ProfileCard from "@/features/profile/components/ProfileCard.vue";
 </script>
