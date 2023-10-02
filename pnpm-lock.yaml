@@ -29,6 +29,9 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: 3.3.4
+  vue-router:
+    specifier: '4'
+    version: registry.npmjs.org/vue-router@4.2.5(vue@3.3.4)
 
 devDependencies:
   '@vitejs/plugin-vue':
@@ -851,6 +854,12 @@ packages:
       '@vue/shared': registry.npmjs.org/@vue/shared@3.3.4
     dev: false
 
+  registry.npmjs.org/@vue/devtools-api@6.5.0:
+    resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.5.0.tgz}
+    name: '@vue/devtools-api'
+    version: 6.5.0
+    dev: false
+
   registry.npmjs.org/@vue/reactivity-transform@3.3.4:
     resolution: {integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@vue/reactivity-transform/-/reactivity-transform-3.3.4.tgz}
     name: '@vue/reactivity-transform'
@@ -1635,6 +1644,18 @@ packages:
     dependencies:
       '@vue/compiler-sfc': registry.npmjs.org/@vue/compiler-sfc@3.3.4
       svgo: registry.npmjs.org/svgo@3.0.2
+    dev: false
+
+  registry.npmjs.org/vue-router@4.2.5(vue@3.3.4):
+    resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vue-router/-/vue-router-4.2.5.tgz}
+    id: registry.npmjs.org/vue-router/4.2.5
+    name: vue-router
+    version: 4.2.5
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': registry.npmjs.org/@vue/devtools-api@6.5.0
+      vue: 3.3.4
     dev: false
 
   registry.npmjs.org/watchpack@2.4.0:

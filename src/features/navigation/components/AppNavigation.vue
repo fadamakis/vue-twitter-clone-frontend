@@ -1,46 +1,47 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
 import AppButton from "@/components/AppButton.vue";
+import { paths } from "@/router";
 
 const routes = [
   {
     name: "Home",
-    path: "/",
+    path: paths.timeline,
     icon: "house",
   },
   {
     name: "Explore",
-    path: "/explore",
+    path: paths.explore,
     icon: "search",
   },
   {
     name: "Notifications",
-    path: "/notifications",
+    path: "#",
     icon: "bell",
   },
   {
     name: "Messages",
-    path: "/messages",
+    path: "#",
     icon: "envelope",
   },
   {
     name: "Bookmarks",
-    path: "/bookmarks",
+    path: "#",
     icon: "bookmark",
   },
   {
     name: "Lists",
-    path: "/lists",
+    path: "#",
     icon: "list-ul",
   },
   {
     name: "Profile",
-    path: "/profile",
+    path: "#",
     icon: "person",
   },
   {
     name: "More",
-    path: "/more",
+    path: "#",
     icon: "plus-circle",
   },
 ];
@@ -48,10 +49,10 @@ const routes = [
 
 <template>
   <nav class="nav">
-    <a v-for="route in routes" :href="route.path" class="link">
-      <AppIcon :icon="route.icon" size="lg" class="icon" />
+    <RouterLink v-for="route in routes" :to="route.path" class="link">
+      <AppIcon :icon="route.icon" size="3x" class="icon" />
       {{ route.name }}
-    </a>
+    </RouterLink>
 
     <AppButton class="button"> Post </AppButton>
   </nav>

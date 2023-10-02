@@ -3,5 +3,5 @@ import TimelinePage from "@/pages/TimelinePage.vue";
 </script>
 
 <template>
-  <TimelinePage />
+  <RouterView />
 </template>
