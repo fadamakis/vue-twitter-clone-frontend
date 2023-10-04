@@ -13,7 +13,7 @@ const tweet = {
 </script>
 
 <template>
-  <RouterLink to="/tweet" class="tweet">
+  <RouterLink to="/status/tweet" class="tweet">
     <UserAvatar :img="tweet.user.image" class="user-avatar" />
     <div class="tweet-content">
       <div class="tweet-info">

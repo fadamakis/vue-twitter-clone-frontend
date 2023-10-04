@@ -36,13 +36,8 @@ const routes = [
   },
   {
     name: "Profile",
-    path: "#",
+    path: paths.profile,
     icon: "person",
-  },
-  {
-    name: "More",
-    path: "#",
-    icon: "plus-circle",
   },
 ];
 </script>
