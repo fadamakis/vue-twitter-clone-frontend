@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AppWidget } from "@/features/widgets";
+import { AppWidget, TrendRow } from "@/features/widgets";
 
 const trends = [
   {
@@ -31,30 +31,13 @@ const trends = [
 
 <template>
   <AppWidget title="Trends">
-    <div>
-      <div v-for="(trend, index) in trends" class="trend">
-        <div class="trend-title">{{ index + 1 }} · {{ trend.title }}</div>
-        <div class="trend-hashtag">{{ trend.hashtag }}</div>
-        <div class="trend-count">{{ trend.tweets }} posts</div>
-      </div>
-    </div>
+    <TrendRow v-for="(trend, index) in trends" :trend="trend" :index="index" />
 
-    <div class="cta">Show more</div>
+    <RouterLink to="/trends" class="cta">Show more</RouterLink>
   </AppWidget>
 </template>
 
 <style lang="scss" scoped>
-.trend {
-  font-size: $font-size-0;
-  color: #536471;
-  margin-bottom: 16px;
-}
-
-.trend-hashtag {
-  font-size: $font-size-1;
-  font-weight: bold;
-  color: $color-dark;
-}
 .cta {
   color: $color-primary;
   font-size: $font-size-0;

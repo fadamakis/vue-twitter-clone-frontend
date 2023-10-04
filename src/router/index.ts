@@ -5,6 +5,7 @@ export const paths = {
   explore: "/explore",
   tweet: "/status/:id",
   profile: "/:id",
+  trends: "/trends",
 };
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { path: paths.explore, component: () => import("@/pages/ExplorePage.vue") },
   { path: paths.tweet, component: () => import("@/pages/TweetPage.vue") },
   { path: paths.profile, component: () => import("@/pages/ProfilePage.vue") },
+  { path: paths.trends, component: () => import("@/pages/TrendsPage.vue") },
 ];
 
 const router = createRouter({
