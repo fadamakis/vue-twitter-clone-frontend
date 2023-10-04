@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// https://icons.getbootstrap.com/
 import BootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 import { PropType } from "vue";
 
@@ -21,11 +22,14 @@ defineProps({
     type: String as PropType<keyof typeof IconSizes>,
     default: "md",
   },
+  clickable: {
+    type: Boolean,
+  },
 });
 </script>
 
 <template>
-  <svg class="icon" :class="`icon-size-${size}`">
+  <svg class="icon" :class="[`icon-size-${size}`, { clickable }]">
     <g transform-origin="center">
       <use v-bind:xlink:href="`${BootstrapIcons}#${icon}`" />
     </g>
@@ -36,6 +40,9 @@ defineProps({
 .icon {
   width: 1em;
   height: 1em;
+}
+.clickable {
+  cursor: pointer;
 }
 .icon-size {
   &-sm {

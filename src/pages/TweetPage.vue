@@ -1,22 +1,22 @@
 <script setup>
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
-import { WhoToFollowWidget, TrendsWidget } from "@/features/widgets";
+import { TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
+import { TweetSingle } from "@/features/tweets";
+import { TweetReplyForm } from "@/features/tweet-create";
 import { TweetList } from "@/features/tweets";
-import { TweetCreateForm } from "@/features/tweet-create";
 </script>
 
 <template>
   <ThreeColumnLayout>
-    <PageTitle>Home</PageTitle>
-    <TweetCreateForm />
+    <PageTitle has-back-button>Post</PageTitle>
+    <TweetSingle />
+    <TweetReplyForm />
     <TweetList />
     <template #sidebar>
       <SearchWidget />
       <TrendsWidget />
-      <WhoToFollowWidget />
     </template>
   </ThreeColumnLayout>
 </template>
-@/features/tweets

@@ -1,12 +1,35 @@
+<script setup lang="ts">
+import AppIcon from "./AppIcon.vue";
+defineProps({
+  hasBackButton: {
+    type: Boolean,
+  },
+});
+</script>
+
 <template>
-  <h1 class="page-title"><slot /></h1>
+  <div class="wrapper">
+    <AppIcon
+      v-if="hasBackButton"
+      @click="$router.back()"
+      icon="arrow-left-short"
+      size="4x"
+      clickable
+    />
+    <h1 class="page-title"><slot /></h1>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 spacing(2);
+  margin: spacing(3);
+}
 .page-title {
   font-size: $font-size-4;
   font-weight: bold;
-  margin: spacing(3);
   padding: 0;
 }
 </style>
