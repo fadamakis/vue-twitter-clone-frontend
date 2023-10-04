@@ -4,16 +4,18 @@ export const paths = {
   timeline: "/",
   explore: "/explore",
   tweet: "/status/:id",
-  profile: "/:id",
   trends: "/trends",
+  connect: "/connect",
+  profile: "/:id",
 };
 
 const routes = [
   { path: paths.timeline, component: () => import("@/pages/TimelinePage.vue") },
   { path: paths.explore, component: () => import("@/pages/ExplorePage.vue") },
   { path: paths.tweet, component: () => import("@/pages/TweetPage.vue") },
-  { path: paths.profile, component: () => import("@/pages/ProfilePage.vue") },
   { path: paths.trends, component: () => import("@/pages/TrendsPage.vue") },
+  { path: paths.connect, component: () => import("@/pages/ConnectPage.vue") },
+  { path: paths.profile, component: () => import("@/pages/ProfilePage.vue") },
 ];
 
 const router = createRouter({

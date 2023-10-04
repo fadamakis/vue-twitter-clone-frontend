@@ -14,7 +14,7 @@ import ProfileCard from "@/features/profile/components/ProfileCard.vue";
       </ProfileCard>
     </div>
 
-    <div class="cta">Show more</div>
+    <RouterLink to="/connect" class="cta">Show more</RouterLink>
   </AppWidget>
 </template>
 
@@ -24,5 +24,6 @@ import ProfileCard from "@/features/profile/components/ProfileCard.vue";
   font-size: $font-size-0;
   font-weight: bold;
   margin-top: spacing(3);
+  display: block;
 }
 </style>

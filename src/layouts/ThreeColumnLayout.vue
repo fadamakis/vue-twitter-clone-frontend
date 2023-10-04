@@ -24,7 +24,7 @@ import AppLogo from "@/components/AppLogo.vue";
   </div>
 </template>
 
-<style>
+<style scoped>
 .page {
   height: 100%;
   max-width: 1280px;
