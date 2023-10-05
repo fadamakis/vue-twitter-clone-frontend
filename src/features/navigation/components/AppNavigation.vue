@@ -16,7 +16,7 @@ const routes = [
   },
   {
     name: "Notifications",
-    path: "#",
+    path: paths.notifications,
     icon: "bell",
   },
   {
