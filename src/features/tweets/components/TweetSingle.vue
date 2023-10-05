@@ -1,15 +1,8 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
 import { UserAvatar } from "@/features/profile";
-const tweet = {
-  user: {
-    name: "Fotis Adamakis",
-    handle: "@fadamakis",
-    image: "https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg",
-  },
-  body: "Hello World!",
-  date: "16 April",
-};
+
+defineProps(["tweet"]);
 </script>
 
 <template>

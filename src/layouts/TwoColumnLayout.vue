@@ -39,6 +39,8 @@ header {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   flex-basis: 80%;
   border-right: 1px solid rgb(239, 243, 244);
   border-left: 1px solid rgb(239, 243, 244);

@@ -21,7 +21,7 @@ const routes = [
   },
   {
     name: "Messages",
-    path: "#",
+    path: paths.messages,
     icon: "envelope",
   },
   {

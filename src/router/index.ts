@@ -8,6 +8,7 @@ export const paths = {
   connect: "/connect",
   bookmarks: "/bookmarks",
   notifications: "/notifications",
+  messages: "/messages",
   profile: "/:id",
   notFound: "/:pathMatch(.*)*",
 };
@@ -20,6 +21,7 @@ const routes = [
   { path: paths.connect, component: () => import("@/pages/ConnectPage.vue") },
   { path: paths.bookmarks, component: () => import("@/pages/BookmarksPage.vue"), },
   { path: paths.notifications, component: () => import("@/pages/NotificationsPage.vue"), },
+  { path: paths.messages, component: () => import("@/pages/MessagesPage.vue"), },
   { path: paths.profile, component: () => import("@/pages/ProfilePage.vue") },
   { path: paths.notFound, component: () => import("@/pages/NotFound.vue"), },
 ];
