@@ -7,6 +7,7 @@ export const paths = {
   trends: "/trends",
   connect: "/connect",
   profile: "/:id",
+  notFound: "/:pathMatch(.*)*",
 };
 
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
   { path: paths.trends, component: () => import("@/pages/TrendsPage.vue") },
   { path: paths.connect, component: () => import("@/pages/ConnectPage.vue") },
   { path: paths.profile, component: () => import("@/pages/ProfilePage.vue") },
+  { path: paths.notFound, component: () => import("@/pages/NotFound.vue"), },
 ];
 
 const router = createRouter({

@@ -45,6 +45,9 @@ const tweet = {
   padding: spacing(4);
   color: $color-dark;
   border-bottom: 1px solid $color-border;
+  &:hover {
+    background-color: $color-light;
+  }
 }
 
 .user-avatar {
