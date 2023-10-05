@@ -30,11 +30,6 @@ const routes = [
     icon: "bookmark",
   },
   {
-    name: "Lists",
-    path: "#",
-    icon: "list-ul",
-  },
-  {
     name: "Profile",
     path: paths.profile,
     icon: "person",
