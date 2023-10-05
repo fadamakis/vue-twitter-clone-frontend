@@ -24,7 +24,7 @@ import AppLogo from "@/components/AppLogo.vue";
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .page {
   height: 100%;
   max-width: 1280px;
@@ -54,6 +54,6 @@ main {
 
 aside {
   flex-basis: 30%;
-  padding: 12px;
+  padding: spacing(3);
 }
 </style>

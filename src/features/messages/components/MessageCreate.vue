@@ -1,8 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppInput from "@/components/AppInput.vue";
+import AppIcon from "@/components/AppIcon.vue";
+</script>
 
 <template>
   <div class="new-message">
-    <input type="text" placeholder="Send message..." class="new-message-input" />
+    <AppInput placeholder="Send message...">
+      <template #suffix>
+        <AppIcon size="2x" icon="arrow-right-circle" />
+      </template>
+    </AppInput>
   </div>
 </template>
 
@@ -10,15 +17,5 @@
 .new-message {
   padding: spacing(2) spacing(4);
   border-top: 1px solid $color-border;
-}
-
-.new-message-input {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: $font-size-1;
-  padding: spacing(3);
-  border-radius: $border-radius;
-  background: $color-light;
 }
 </style>

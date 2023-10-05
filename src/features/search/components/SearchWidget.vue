@@ -1,16 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppIcon from "@/components/AppIcon.vue";
+import AppInput from "@/components/AppInput.vue";
+</script>
 
 <template>
-  <input type="search" name="search" placeholder="Search" class="search-input" />
+  <AppInput name="search" placeholder="Search">
+    <template #prefix>
+      <AppIcon icon="search" />
+    </template>
+  </AppInput>
 </template>
-
-<style lang="scss" scoped>
-.search-input {
-  width: 100%;
-  margin-top: spacing(3);
-  background: $color-light;
-  padding: spacing(3) spacing(5);
-  border-radius: $border-radius-pill;
-  outline: 0;
-}
-</style>
