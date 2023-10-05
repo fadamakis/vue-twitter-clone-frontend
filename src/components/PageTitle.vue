@@ -25,7 +25,8 @@ defineProps({
   display: flex;
   align-items: center;
   gap: 0 spacing(2);
-  margin: spacing(3);
+  padding: spacing(3);
+  border-bottom: 1px solid $color-border;
 }
 .page-title {
   font-size: $font-size-4;
