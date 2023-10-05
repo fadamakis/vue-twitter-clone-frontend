@@ -26,7 +26,7 @@ const routes = [
   },
   {
     name: "Bookmarks",
-    path: "#",
+    path: paths.bookmarks,
     icon: "bookmark",
   },
   {
