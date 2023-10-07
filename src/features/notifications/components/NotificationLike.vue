@@ -3,10 +3,10 @@ import AppIcon from "@/components/AppIcon.vue";
 import { RouterLink } from "vue-router";
 </script>
 <template>
-  <RouterLink to="/profile">
+  <RouterLink to="/status/a">
     <div class="notification">
-      <AppIcon icon="person-fill" size="4x" fill="#23b7d9" />
-      <p><strong>Fotis Adamakis</strong> followed you</p>
+      <AppIcon icon="heart-fill" size="4x" fill="#fa5555" />
+      <p><strong>Fotis Adamakis</strong> liked your post</p>
     </div>
   </RouterLink>
 </template>
