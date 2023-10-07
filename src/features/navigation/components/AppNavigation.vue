@@ -2,6 +2,7 @@
 import AppIcon from "@/components/AppIcon.vue";
 import AppButton from "@/components/AppButton.vue";
 import { paths } from "@/router";
+import { TweetCreateModal } from "@/features/tweet-create";
 
 const routes = [
   {
@@ -44,7 +45,9 @@ const routes = [
       {{ route.name }}
     </RouterLink>
 
-    <AppButton class="button"> Post </AppButton>
+    <TweetCreateModal>
+      <AppButton class="button"> Post </AppButton>
+    </TweetCreateModal>
   </nav>
 </template>
 
@@ -74,5 +77,6 @@ const routes = [
 
 .button {
   margin-top: spacing(5);
+  width: 100%;
 }
 </style>

@@ -27,8 +27,7 @@ const emit = defineEmits(["posted"]);
 <style lang="scss" scoped>
 .tweet-creation-form {
   display: flex;
-  padding: spacing(4);
-  border-bottom: 1px solid $color-border;
+  margin-top: spacing(4);
 }
 
 .tweet-creation-content {
@@ -53,5 +52,13 @@ const emit = defineEmits(["posted"]);
 .tweet-actions {
   display: flex;
   align-items: center;
+}
+.tweet-actions-buttons {
+  display: flex;
+  flex: 1;
+  gap: 0 spacing(5);
+  color: $color-gray;
+  font-size: $font-size-2;
+  fill: $color-primary;
 }
 </style>

@@ -19,4 +19,3 @@ import { TweetCreateForm } from "@/features/tweet-create";
     </template>
   </ThreeColumnLayout>
 </template>
-@/features/tweets
