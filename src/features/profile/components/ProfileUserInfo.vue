@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import UserAvatar from "./UserAvatar.vue";
+import AppButton from "@/components/AppButton.vue";
+import { ProfileEditModal } from "@/features/profile";
 </script>
 
 <template>
@@ -8,11 +10,18 @@ import UserAvatar from "./UserAvatar.vue";
     alt=""
     class="banner"
   />
-  <UserAvatar
-    size="xl"
-    img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_400x400.jpg"
-    class="avatar"
-  />
+  <div class="user-avatar-wrapper">
+    <UserAvatar
+      size="xl"
+      img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_400x400.jpg"
+      class="avatar"
+    />
+    <ProfileEditModal>
+      <AppButton color="light" size="sm" class="edit-profile-button">
+        Edit Profile
+      </AppButton>
+    </ProfileEditModal>
+  </div>
   <div class="user-info">
     <div class="fullname">Fotis Adamakis</div>
     <div class="username">@fadamakis</div>
@@ -34,6 +43,7 @@ import UserAvatar from "./UserAvatar.vue";
 
 <style lang="scss" scoped>
 .user-info {
+  position: relative;
   padding: spacing(4);
   border-bottom: 1px solid $color-border;
 }
@@ -44,9 +54,15 @@ import UserAvatar from "./UserAvatar.vue";
   z-index: -1;
   position: relative;
 }
+
+.user-avatar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin: spacing(-16) spacing(4) spacing(2);
+}
 .avatar {
-  margin-top: spacing(-16);
-  margin-left: spacing(2);
   border: 4px solid $color-white;
 }
 .fullname {

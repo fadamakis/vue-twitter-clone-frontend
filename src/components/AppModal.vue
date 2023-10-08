@@ -60,6 +60,7 @@ function closeModal() {
 .title {
   font-size: $font-size-3;
   font-weight: 700;
+  margin-bottom: spacing(2);
 }
 .close {
   position: absolute;

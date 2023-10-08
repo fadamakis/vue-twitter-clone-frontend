@@ -4,7 +4,7 @@ import AppInput from "@/components/AppInput.vue";
 </script>
 
 <template>
-  <AppInput name="search" placeholder="Search">
+  <AppInput pill name="search" placeholder="Search">
     <template #prefix>
       <AppIcon icon="search" />
     </template>

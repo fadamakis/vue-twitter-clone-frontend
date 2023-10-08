@@ -3,6 +3,7 @@
 @import './_spacings.mixin.scss';
 
 // typography
+$border-radius-input: spacing(2);
 $border-radius: spacing(4);
 $border-radius-pill: spacing(8);
 $border-radius-circle: 50%;

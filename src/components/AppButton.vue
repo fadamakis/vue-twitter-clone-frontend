@@ -88,8 +88,9 @@ defineProps({
     }
   }
   &.light {
-    background: $color-light;
+    background: $color-white;
     color: $color-dark;
+    border: 1px solid $color-border;
     &:hover {
       background: $color-light-hover;
     }
