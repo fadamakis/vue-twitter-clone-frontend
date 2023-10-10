@@ -42,7 +42,7 @@ const routes = [
   <nav class="nav">
     <RouterLink v-for="route in routes" :to="route.path" class="link">
       <AppIcon :icon="route.icon" size="3x" class="icon" />
-      {{ route.name }}
+      <span class="route-name">{{ route.name }}</span>
     </RouterLink>
 
     <TweetCreateModal>
@@ -68,11 +68,19 @@ const routes = [
   color: $color-dark;
 }
 
+.route-name {
+  display: none;
+  @include breakpoint(xl) {
+    display: flex;
+  }
+}
+
 .link:hover {
   background-color: $color-light-hover;
 }
 .icon {
   margin-right: spacing(4);
+  flex-shrink: 0;
 }
 
 .button {

@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import AppIcon from "./AppIcon.vue";
+import { useMq } from "vue3-mq";
+const mq = useMq();
 </script>
 
 <template>
-  <AppIcon icon="twitter" fill="black" size="5x" class="logo" />
+  <AppIcon icon="twitter" fill="black" :size="mq.xlPlus ? '5x' : '3x'" class="logo" />
 </template>
 
 <style lang="scss">
