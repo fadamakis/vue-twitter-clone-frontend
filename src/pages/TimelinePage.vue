@@ -5,12 +5,14 @@ import { WhoToFollowWidget, TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { TweetList } from "@/features/tweets";
 import { TweetCreateForm } from "@/features/tweet-create";
+import { useMq } from "vue3-mq";
+const mq = useMq();
 </script>
 
 <template>
   <ThreeColumnLayout>
     <PageTitle>Home</PageTitle>
-    <TweetCreateForm />
+    <TweetCreateForm v-if="mq.mdPlus" />
     <TweetList />
     <template #sidebar>
       <SearchWidget />

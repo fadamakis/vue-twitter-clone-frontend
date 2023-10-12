@@ -1,23 +1,18 @@
 <script setup lang="ts">
-import { AppNavigation } from "@/features/navigation";
-import { ProfileCard } from "@/features/profile";
 import AppFooter from "@/components/AppFooter.vue";
-import AppLogo from "@/components/AppLogo.vue";
+import { AppHeader } from "@/features/header";
+import { useMq } from "vue3-mq";
+const mq = useMq();
 </script>
 
 <template>
   <div class="page">
-    <header>
-      <AppLogo />
-      <AppNavigation />
-      <ProfileCard />
-    </header>
-
+    <AppHeader />
     <main>
       <slot />
     </main>
 
-    <aside>
+    <aside v-if="mq.mdPlus">
       <slot name="sidebar" />
       <AppFooter />
     </aside>
@@ -31,28 +26,22 @@ import AppLogo from "@/components/AppLogo.vue";
   margin: 0 auto;
   display: flex;
   justify-content: center;
-}
-
-header {
-  padding: 12px;
-  display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-  height: 100vh;
-  width: spacing(18);
-  @include breakpoint(xl) {
-    width: 20%;
+  @include breakpoint(md) {
+    flex-direction: row;
   }
 }
 
 main {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  flex: 1;
   border-right: 1px solid rgb(239, 243, 244);
   border-left: 1px solid rgb(239, 243, 244);
+  padding-bottom: spacing(12);
+  @include breakpoint(md) {
+    padding-bottom: 0;
+  }
 }
 
 aside {

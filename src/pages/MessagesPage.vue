@@ -2,6 +2,8 @@
 import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { ConversationList, ConversationSingle } from "@/features/messages";
+import { useMq } from "vue3-mq";
+const mq = useMq();
 </script>
 
 <template>
@@ -9,7 +11,7 @@ import { ConversationList, ConversationSingle } from "@/features/messages";
     <PageTitle>Messages</PageTitle>
     <div class="content">
       <ConversationList class="conversation-list" />
-      <ConversationSingle class="conversation" />
+      <ConversationSingle v-if="mq.mdPlus" class="conversation" />
     </div>
   </TwoColumnLayout>
 </template>
@@ -21,8 +23,13 @@ import { ConversationList, ConversationSingle } from "@/features/messages";
 }
 
 .conversation-list {
-  flex-basis: 30%;
-  border-right: 1px solid $color-border;
+  flex: 1;
+  height: 100%;
+}
+
+.conversation {
+  flex: 3;
+  border-left: 1px solid $color-border;
   height: 100%;
 }
 </style>

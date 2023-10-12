@@ -29,8 +29,11 @@ defineProps({
   border-bottom: 1px solid $color-border;
 }
 .page-title {
-  font-size: $font-size-4;
+  font-size: $font-size-3;
   font-weight: bold;
   padding: 0;
+  @include breakpoint(md) {
+    font-size: $font-size-4;
+  }
 }
 </style>
