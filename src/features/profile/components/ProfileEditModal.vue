@@ -1,13 +1,15 @@
 <script setup>
 import AppModal from "@/components/AppModal.vue";
 import ProfileEditForm from "./ProfileEditForm.vue";
+const emit = defineEmits(["close"]);
+
+function closeModal() {
+  emit("close");
+}
 </script>
 <template>
-  <AppModal>
-    <template #trigger>
-      <slot />
-    </template>
+  <AppModal @close="closeModal">
     <template #title> Edit Profile </template>
-    <template #body="{ closeModal }"> <ProfileEditForm @close="closeModal" /> </template>
+    <template #body> <ProfileEditForm @close="closeModal" /> </template>
   </AppModal>
 </template>

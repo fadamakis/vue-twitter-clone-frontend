@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import UserAvatar from "./UserAvatar.vue";
-import AppButton from "@/components/AppButton.vue";
-import { ProfileEditModal } from "@/features/profile";
+import ProfileEditButton from "./ProfileEditButton.vue";
 </script>
 
 <template>
@@ -16,11 +15,7 @@ import { ProfileEditModal } from "@/features/profile";
       img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_400x400.jpg"
       class="avatar"
     />
-    <ProfileEditModal>
-      <AppButton color="light" size="sm" class="edit-profile-button">
-        Edit Profile
-      </AppButton>
-    </ProfileEditModal>
+    <ProfileEditButton />
   </div>
   <div class="user-info">
     <div class="fullname">Fotis Adamakis</div>

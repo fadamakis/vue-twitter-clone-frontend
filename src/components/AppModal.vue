@@ -1,36 +1,27 @@
 <script setup>
-import { ref } from "vue";
 import AppIcon from "@/components/AppIcon.vue";
-const visible = ref(false);
 
-function openModal() {
-  visible.value = true;
-}
+const emit = defineEmits(["close"]);
+
 function closeModal() {
-  visible.value = false;
+  emit("close");
 }
 </script>
 
 <template>
-  <div>
-    <div @click="openModal">
-      <slot name="trigger" />
-    </div>
-
-    <Teleport to="body">
-      <div class="modal" v-if="visible" @click="closeModal">
-        <div class="modal-content" @click.stop>
-          <div class="title" v-if="$slots.title">
-            <slot name="title" />
-          </div>
-          <AppIcon icon="x" size="4x" @click="closeModal" clickable class="close" />
-          <div v-if="$slots.body">
-            <slot name="body" class="body" :close-modal="closeModal" />
-          </div>
+  <Teleport to="body">
+    <div class="modal" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <div class="title" v-if="$slots.title">
+          <slot name="title" />
+        </div>
+        <AppIcon icon="x" size="4x" @click="closeModal" clickable class="close" />
+        <div v-if="$slots.body">
+          <slot name="body" class="body" />
         </div>
       </div>
-    </Teleport>
-  </div>
+    </div>
+  </Teleport>
 </template>
 
 <style lang="scss" scoped>

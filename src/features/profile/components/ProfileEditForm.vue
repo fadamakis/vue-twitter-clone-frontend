@@ -3,6 +3,7 @@ import AppButton from "@/components/AppButton.vue";
 import AppInput from "@/components/AppInput.vue";
 import { UserAvatar } from "@/features/profile";
 import ImageEditable from "./ImageEditable.vue";
+const emit = defineEmits(["close"]);
 </script>
 
 <template>
@@ -40,7 +41,7 @@ import ImageEditable from "./ImageEditable.vue";
     <template #label> Website </template>
   </AppInput>
   <div class="cta-button">
-    <AppButton> Save </AppButton>
+    <AppButton @click="emit('close')"> Save </AppButton>
   </div>
 </template>
 

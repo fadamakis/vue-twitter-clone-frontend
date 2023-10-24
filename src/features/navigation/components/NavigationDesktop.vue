@@ -1,9 +1,7 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
-import AppButton from "@/components/AppButton.vue";
 import { paths } from "@/router";
-import { TweetCreateModal } from "@/features/tweet-create";
-import { MqResponsive } from "vue3-mq";
+import { TweetCreateActionDesktop } from "@/features/tweet-create";
 
 const routes = [
   {
@@ -46,14 +44,7 @@ const routes = [
       <span class="route-name">{{ route.name }}</span>
     </RouterLink>
 
-    <TweetCreateModal>
-      <AppButton class="button">
-        <MqResponsive target="xl+"> Post </MqResponsive>
-        <MqResponsive target="lg-">
-          <AppIcon icon="plus" size="3x" fill="white" />
-        </MqResponsive>
-      </AppButton>
-    </TweetCreateModal>
+    <TweetCreateActionDesktop />
   </nav>
 </template>
 
@@ -89,11 +80,5 @@ const routes = [
   @include breakpoint(xl) {
     margin-right: spacing(4);
   }
-}
-
-.button {
-  margin-top: spacing(3);
-  width: 100%;
-  padding: spacing(3);
 }
 </style>

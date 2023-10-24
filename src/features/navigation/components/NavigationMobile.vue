@@ -1,8 +1,7 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
-import AppButton from "@/components/AppButton.vue";
 import { paths } from "@/router";
-import { TweetCreateModal } from "@/features/tweet-create";
+import { TweetCreateActionMobile } from "@/features/tweet-create";
 
 const routes = [
   {
@@ -36,11 +35,7 @@ const routes = [
     </RouterLink>
   </nav>
 
-  <TweetCreateModal>
-    <AppButton class="button">
-      <AppIcon icon="plus" size="4x" fill="white" />
-    </AppButton>
-  </TweetCreateModal>
+  <TweetCreateActionMobile />
 </template>
 
 <style scoped lang="scss">
@@ -80,12 +75,5 @@ const routes = [
   @include breakpoint(xl) {
     margin-right: spacing(4);
   }
-}
-
-.button {
-  position: fixed;
-  bottom: spacing(18);
-  right: spacing(3);
-  padding: spacing(3);
 }
 </style>
