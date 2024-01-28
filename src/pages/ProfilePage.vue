@@ -10,7 +10,9 @@ import { ProfileUserInfo } from "@/features/profile";
 <template>
   <ThreeColumnLayout>
     <PageTitle has-back-button>Profile</PageTitle>
-    <ProfileUserInfo />
+    <Suspense>
+      <ProfileUserInfo />
+    </Suspense>
     <TweetList />
     <template #sidebar>
       <SearchWidget />

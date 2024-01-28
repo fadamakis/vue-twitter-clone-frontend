@@ -1,36 +1,43 @@
 <script setup lang="ts">
 import UserAvatar from "./UserAvatar.vue";
 import ProfileEditButton from "./ProfileEditButton.vue";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+import { profileApiCall } from "@/features/profile";
+import { ref } from "vue";
+
+const route = useRoute();
+const profile = ref();
+
+async function fetchAndUpdateProfile(username) {
+  const response = await profileApiCall(username);
+  profile.value = response.data;
+};
+
+await fetchAndUpdateProfile(route.params.id);
+
+onBeforeRouteUpdate(async (to) => {
+  await fetchAndUpdateProfile(to.params.id);
+});
 </script>
 
 <template>
-  <img
-    src="https://pbs.twimg.com/profile_banners/525193422/1633505307/600x200"
-    alt=""
-    class="banner"
-  />
+  <img :src="profile.value.banner" alt="" class="banner" />
   <div class="user-avatar-wrapper">
-    <UserAvatar
-      size="xl"
-      img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_400x400.jpg"
-      class="avatar"
-    />
+    <UserAvatar size="xl" :img="profile.value.avatar" class="avatar" />
     <ProfileEditButton />
   </div>
   <div class="user-info">
-    <div class="fullname">Fotis Adamakis</div>
-    <div class="username">@fadamakis</div>
+    <div class="fullname">{{ profile.value.name }}</div>
+    <div class="username">{{ profile.value.username }}</div>
     <div class="bio">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita deleniti
-      laboriosam eligendi. Incidunt dolores dicta veritatis. Quaerat ad, magnam esse, illo
-      atque delectus minus, nihil adipisci tempora nobis iusto. Excepturi?
+      {{ profile.value.bio }}
     </div>
     <div class="audience-info">
       <RouterLink to="/fadamakis/following" class="audience-info-item">
-        <strong>12</strong> Following
+        <strong>{{ profile.value.following.length }}</strong> Following
       </RouterLink>
       <RouterLink to="/fadamakis/followers" class="audience-info-item">
-        <strong>31</strong> Followers
+        <strong>{{ profile.value.followers.length }}</strong> Followers
       </RouterLink>
     </div>
   </div>
