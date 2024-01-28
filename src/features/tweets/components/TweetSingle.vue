@@ -1,19 +1,26 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
 import { UserAvatar } from "@/features/profile";
+import { useTimeAgo } from "@vueuse/core";
 
 defineProps(["tweet"]);
 </script>
 
 <template>
-  <RouterLink to="/status/tweet" class="tweet">
-    <UserAvatar :img="tweet.user.image" class="user-avatar" />
+  <RouterLink :to="`/status/${tweet._id}`" class="tweet">
+    <RouterLink :to="`/${tweet.owner.username}`">
+      <UserAvatar :img="tweet.owner.avatar" class="user-avatar" />
+    </RouterLink>
     <div class="tweet-content">
       <div class="tweet-info">
-        <span class="tweet-info-name">{{ tweet.user.name }}</span>
-        <span>{{ tweet.user.handle }}</span>
+        <RouterLink :to="`/${tweet.owner.username}`" class="tweet-info-name">{{
+          tweet.owner.name
+        }}</RouterLink>
+        <RouterLink :to="`/${tweet.owner.username}`"
+          >{{ tweet.owner.username }}</RouterLink
+        >
         <span>·</span>
-        <span>{{ tweet.date }}</span>
+        <span>{{ useTimeAgo(tweet.date).value }}</span>
       </div>
       <p class="tweet-body">
         {{ tweet.body }}
@@ -38,6 +45,7 @@ defineProps(["tweet"]);
   padding: spacing(4);
   color: $color-dark;
   border-bottom: 1px solid $color-border;
+
   &:hover {
     background-color: $color-light;
   }
@@ -52,6 +60,7 @@ defineProps(["tweet"]);
   flex: 1;
   flex-direction: column;
 }
+
 .tweet-info {
   display: flex;
   align-items: center;
@@ -65,11 +74,13 @@ defineProps(["tweet"]);
   font-weight: bold;
   color: $color-dark;
 }
+
 .tweet-body {
   font-size: $font-size-0;
   line-height: 1.4;
   color: $color-dark;
 }
+
 .tweet-media {
   margin: spacing(3) 0;
   border-radius: $border-radius;

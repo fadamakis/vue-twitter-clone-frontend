@@ -1,37 +1,12 @@
 <script setup lang="ts">
 import { AppWidget, TrendRow } from "@/features/widgets";
-
-const trends = [
-  {
-    id: 1,
-    title: "Trending Globally",
-    hashtag: "#iphone15",
-    tweets: 5466,
-  },
-  {
-    id: 2,
-    title: "Fashion",
-    hashtag: "#hi-Fashion",
-    tweets: 8464,
-  },
-  {
-    id: 3,
-    title: "Formula 1",
-    hashtag: "#ferrari",
-    tweets: 5586,
-  },
-  {
-    id: 4,
-    title: "Auto Racing",
-    hashtag: "#vettel",
-    tweets: 9416,
-  },
-];
+import fetch from '@/lib/fetch'
+const { data } = fetch('/tweets/trends').json()
 </script>
 
 <template>
   <AppWidget title="Trends">
-    <TrendRow v-for="(trend, index) in trends" :trend="trend" :index="index" />
+    <TrendRow v-for="(trend, index) in data?.trends" :trend="trend" :index="index" />
 
     <RouterLink to="/trends" class="cta">Show more</RouterLink>
   </AppWidget>

@@ -4,9 +4,8 @@ defineProps(["trend", "index"]);
 
 <template>
   <div class="trend">
-    <div class="trend-title">{{ index + 1 }} · {{ trend.title }}</div>
-    <div class="trend-hashtag">{{ trend.hashtag }}</div>
-    <div class="trend-count">{{ trend.tweets }} posts</div>
+    <div class="trend-title">{{ index + 1 }} · {{ trend.hashtag }}</div>
+    <div class="trend-count">{{ trend.count }} posts</div>
   </div>
 </template>
 
@@ -17,7 +16,7 @@ defineProps(["trend", "index"]);
   margin-bottom: 16px;
 }
 
-.trend-hashtag {
+.trend-title {
   font-size: $font-size-1;
   font-weight: bold;
   color: $color-dark;

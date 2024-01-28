@@ -1,29 +1,36 @@
 <script setup>
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
-import { TweetSingle } from "@/features/tweets";
 import { TweetReplyForm } from "@/features/tweet-create";
-import { TweetList } from "@/features/tweets";
+import {
+  TweetSingle,
+  TweetList,
+  useSingleTweet,
+} from "@/features/tweets";
 
-const tweet = {
-  user: {
-    name: "Fotis Adamakis",
-    handle: "@fadamakis",
-    image: "https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg",
-  },
-  body: "Hello World!",
-  date: "16 April",
-};
+const tweetId = useRoute().params.id;
+
+const { tweet, fetchSingleTweet } = useSingleTweet();
+
+fetchSingleTweet(tweetId)
+
+onBeforeRouteUpdate(async (to) => {
+  await fetchSingleTweet(to.params.id)
+});
 </script>
 
 <template>
   <ThreeColumnLayout>
     <PageTitle has-back-button>Post</PageTitle>
-    <TweetSingle :tweet="tweet" />
+    <TweetSingle :tweet="tweet?.value" v-if="tweet?.value" />
     <TweetReplyForm />
-    <TweetList />
+    <Suspense>
+      <TweetList />
+    </Suspense>
     <template #sidebar>
       <SearchWidget />
       <TrendsWidget />
