@@ -1,5 +1,13 @@
-import { createFetch } from "@vueuse/core";
+import axios from "axios";
 
-export default createFetch({
-  baseUrl: "http://localhost:3000",
+const instance = axios.create({
+  baseURL: "http://localhost:3000",
 });
+
+instance.interceptors.response.use(
+  function (response) {
+    return response.data;
+  }
+);
+
+export default instance;

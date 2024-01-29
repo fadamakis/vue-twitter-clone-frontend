@@ -2,13 +2,13 @@
 import { TweetSingle, useTweetList } from "@/features/tweets";
 const { tweets, fetchTweetList } = useTweetList();
 
-fetchTweetList()
+ fetchTweetList()
 
 </script>
 
 <template>
-  <div class="tweet-list" v-if="tweets?.value">
-    <TweetSingle :key="index" v-for="(tweet, index) in tweets.value" :tweet="tweet" />
+  <div class="tweet-list" v-if="tweets">
+    <TweetSingle :key="index" v-for="(tweet, index) in tweets" :tweet="tweet" />
   </div>
 </template>
 

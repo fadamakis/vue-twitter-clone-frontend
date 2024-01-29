@@ -6,8 +6,7 @@ export default function () {
   const tweets = ref();
 
   async function fetchTweetList() {
-    const response = await tweetListApiCall();
-    tweets.value = response.data
+    tweets.value =  await tweetListApiCall();
   }
 
   return {

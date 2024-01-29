@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { AppWidget, TrendRow } from "@/features/widgets";
-import fetch from '@/lib/fetch'
-const { data } = fetch('/tweets/trends').json()
+import fetch from "@/lib/fetch";
+import { ref, onMounted } from "vue";
+const response = ref();
+onMounted(async () => {
+  response.value = await fetch("/tweets/trends")
+});
 </script>
 
 <template>
-  <AppWidget title="Trends">
-    <TrendRow v-for="(trend, index) in data?.trends" :trend="trend" :index="index" />
+  <AppWidget title="Trends" v-if="response">
+    <TrendRow v-for="(trend, index) in response.trends" :trend="trend" :index="index" />
 
     <RouterLink to="/trends" class="cta">Show more</RouterLink>
   </AppWidget>

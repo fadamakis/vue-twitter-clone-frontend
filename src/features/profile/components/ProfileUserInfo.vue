@@ -8,36 +8,31 @@ import { ref } from "vue";
 const route = useRoute();
 const profile = ref();
 
-async function fetchAndUpdateProfile(username) {
-  const response = await profileApiCall(username);
-  profile.value = response.data;
-};
-
-await fetchAndUpdateProfile(route.params.id);
+profile.value = await profileApiCall(route.params.id);
 
 onBeforeRouteUpdate(async (to) => {
-  await fetchAndUpdateProfile(to.params.id);
+  profile.value = await profileApiCall(to.params.id);
 });
 </script>
 
 <template>
-  <img :src="profile.value.banner" alt="" class="banner" />
+  <img :src="profile.banner" alt="" class="banner" />
   <div class="user-avatar-wrapper">
-    <UserAvatar size="xl" :img="profile.value.avatar" class="avatar" />
+    <UserAvatar size="xl" :img="profile.avatar" class="avatar" />
     <ProfileEditButton />
   </div>
   <div class="user-info">
-    <div class="fullname">{{ profile.value.name }}</div>
-    <div class="username">{{ profile.value.username }}</div>
+    <div class="fullname">{{ profile.name }}</div>
+    <div class="username">{{ profile.username }}</div>
     <div class="bio">
-      {{ profile.value.bio }}
+      {{ profile.bio }}
     </div>
     <div class="audience-info">
       <RouterLink to="/fadamakis/following" class="audience-info-item">
-        <strong>{{ profile.value.following.length }}</strong> Following
+        <strong>{{ profile.following.length }}</strong> Following
       </RouterLink>
       <RouterLink to="/fadamakis/followers" class="audience-info-item">
-        <strong>{{ profile.value.followers.length }}</strong> Followers
+        <strong>{{ profile.followers.length }}</strong> Followers
       </RouterLink>
     </div>
   </div>
