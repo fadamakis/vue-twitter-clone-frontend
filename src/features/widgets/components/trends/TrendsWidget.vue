@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { AppWidget, TrendRow } from "@/features/widgets";
-import fetch from "@/lib/fetch";
-import { ref, onMounted } from "vue";
+import { AppWidget, TrendRow, trendsApiCall } from "@/features/widgets";
+import { ref } from "vue";
 const response = ref();
-onMounted(async () => {
-  response.value = await fetch("/tweets/trends")
-});
+response.value = await trendsApiCall(5);
 </script>
 
 <template>
