@@ -1,14 +1,17 @@
 <script setup>
-import { TweetSingle, useTweetList } from "@/features/tweets";
-const { tweets, fetchTweetList } = useTweetList();
+import { TweetSingle } from "@/features/tweets";
 
- fetchTweetList()
-
+defineProps(["tweets", "owner"]);
 </script>
 
 <template>
   <div class="tweet-list" v-if="tweets">
-    <TweetSingle :key="index" v-for="(tweet, index) in tweets" :tweet="tweet" />
+    <TweetSingle
+      :key="index"
+      v-for="(tweet, index) in tweets"
+      :tweet="tweet"
+      :owner="owner"
+    />
   </div>
 </template>
 

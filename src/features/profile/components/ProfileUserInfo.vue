@@ -1,18 +1,8 @@
 <script setup lang="ts">
 import UserAvatar from "./UserAvatar.vue";
 import ProfileEditButton from "./ProfileEditButton.vue";
-import { useRoute, onBeforeRouteUpdate } from "vue-router";
-import { profileApiCall } from "@/features/profile";
-import { ref } from "vue";
 
-const route = useRoute();
-const profile = ref();
-
-profile.value = await profileApiCall(route.params.id);
-
-onBeforeRouteUpdate(async (to) => {
-  profile.value = await profileApiCall(to.params.id);
-});
+defineProps(["profile"]);
 </script>
 
 <template>

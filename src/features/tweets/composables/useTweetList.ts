@@ -9,6 +9,10 @@ export default function () {
     tweets.value =  await tweetListApiCall();
   }
 
+  async function fetchProfileList() {
+    tweets.value =  await tweetListApiCall();
+  }
+
   return {
     tweets,
     fetchTweetList,

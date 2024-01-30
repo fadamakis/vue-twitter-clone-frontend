@@ -1,19 +1,29 @@
 <script setup>
+import { ref } from "vue";
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
-import { TweetList } from "@/features/tweets";
 import { ProfileUserInfo } from "@/features/profile";
+import { TweetList } from "@/features/tweets";
+import { profileApiCall } from "@/features/profile";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+
+const route = useRoute();
+const profile = ref();
+
+profile.value = await profileApiCall(route.params.id);
+
+onBeforeRouteUpdate(async (to) => {
+  profile.value = await profileApiCall(to.params.id);
+});
 </script>
 
 <template>
   <ThreeColumnLayout>
     <PageTitle has-back-button>Profile</PageTitle>
-    <Suspense>
-      <ProfileUserInfo />
-    </Suspense>
-    <TweetList />
+    <ProfileUserInfo :profile="profile" />
+    <TweetList :tweets="profile.tweets" :owner="profile" />
     <template #sidebar>
       <SearchWidget />
       <TrendsWidget />

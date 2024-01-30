@@ -1,9 +1,13 @@
 <script setup>
+import { ref } from "vue";
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { TrendRow, WhoToFollowWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
-import TweetList from "@/features/tweets/components/TweetList.vue";
+import { TweetList, tweetListApiCall } from "@/features/tweets";
+
+const tweets = ref();
+tweets.value = await tweetListApiCall();
 
 const trends = [
   {
@@ -39,7 +43,7 @@ const trends = [
     <div class="trends">
       <TrendRow v-for="(trend, index) in trends" :trend="trend" :index="index" />
     </div>
-    <TweetList />
+    <TweetList :tweets="tweets" />
     <template #sidebar>
       <SearchWidget />
       <WhoToFollowWidget />

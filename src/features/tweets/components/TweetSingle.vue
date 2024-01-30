@@ -3,22 +3,24 @@ import AppIcon from "@/components/AppIcon.vue";
 import { UserAvatar } from "@/features/profile";
 import { useTimeAgo } from "@vueuse/core";
 
-defineProps(["tweet"]);
+const props = defineProps(["tweet", "owner"]);
+
+const owner = props.owner || props.tweet.owner;
 </script>
 
 <template>
   <RouterLink :to="`/status/${tweet._id}`" class="tweet">
-    <RouterLink :to="`/${tweet.owner.username}`">
-      <UserAvatar :img="tweet.owner.avatar" class="user-avatar" />
+    <RouterLink :to="`/${owner.username}`">
+      <UserAvatar :img="owner.avatar" class="user-avatar" />
     </RouterLink>
     <div class="tweet-content">
       <div class="tweet-info">
-        <RouterLink :to="`/${tweet.owner.username}`" class="tweet-info-name">{{
-          tweet.owner.name
+        <RouterLink :to="`/${owner.username}`" class="tweet-info-name">{{
+          owner.name
         }}</RouterLink>
-        <RouterLink :to="`/${tweet.owner.username}`"
-          >{{ tweet.owner.username }}</RouterLink
-        >
+        <RouterLink :to="`/${owner.username}`">
+          {{ owner.username }}
+        </RouterLink>
         <span>·</span>
         <span>{{ useTimeAgo(tweet.date).value }}</span>
       </div>
