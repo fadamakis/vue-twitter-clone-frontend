@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import UserAvatar from "./UserAvatar.vue";
+defineProps(["profile"]);
 </script>
 
 <template>
   <a href="#" class="profile-card">
-    <UserAvatar
-      img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg"
-    />
+    <UserAvatar :img="profile.avatar" />
     <div class="profile-card-user-info">
-      <p class="profile-card-name">Fotis Adamakis</p>
-      <p class="profile-card-username">@fadamakis</p>
+      <p class="profile-card-name">{{ profile.name }}</p>
+      <p class="profile-card-username">{{ profile.username }}</p>
     </div>
     <slot name="action" />
   </a>

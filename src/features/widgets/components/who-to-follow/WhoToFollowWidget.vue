@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { AppWidget } from "@/features/widgets";
+import { ref } from "vue";
 import AppButton from "@/components/AppButton.vue";
-import ProfileCard from "@/features/profile/components/ProfileCard.vue";
+import { ProfileCard } from "@/features/profile";
+import { AppWidget, friendSuggestionsApiCall } from "@/features/widgets";
+
+const response = ref();
+response.value = await friendSuggestionsApiCall();
 </script>
 
 <template>
   <AppWidget title="Who to follow">
     <div>
-      <ProfileCard v-for="i in 5">
+      <ProfileCard v-for="profile in response" :profile="profile">
         <template #action>
           <AppButton size="sm" color="dark">Follow</AppButton>
         </template>

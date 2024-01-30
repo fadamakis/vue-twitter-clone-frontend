@@ -1,9 +1,14 @@
 <script setup>
+import { ref } from "vue";
+import AppButton from "@/components/AppButton.vue";
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
-import { TrendsWidget } from "@/features/widgets";
+import { TrendsWidget, friendSuggestionsApiCall } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { ProfileCard } from "@/features/profile";
+
+const response = ref();
+response.value = await friendSuggestionsApiCall(10);
 </script>
 
 <template>
@@ -13,7 +18,11 @@ import { ProfileCard } from "@/features/profile";
     <div class="page">
       <h3 class="page-title">Suggested for you</h3>
 
-      <ProfileCard v-for="i in 5" />
+      <ProfileCard v-for="profile in response" :profile="profile">
+        <template #action>
+          <AppButton size="sm" color="dark">Follow</AppButton>
+        </template>
+      </ProfileCard>
     </div>
 
     <template #sidebar>

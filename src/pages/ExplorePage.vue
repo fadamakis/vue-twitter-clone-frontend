@@ -2,39 +2,15 @@
 import { ref } from "vue";
 import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
-import { TrendRow, WhoToFollowWidget } from "@/features/widgets";
+import { TrendRow, WhoToFollowWidget, trendsApiCall } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { TweetList, tweetListApiCall } from "@/features/tweets";
 
 const tweets = ref();
 tweets.value = await tweetListApiCall();
 
-const trends = [
-  {
-    id: 1,
-    title: "Trending Globally",
-    hashtag: "#iphone15",
-    tweets: 5466,
-  },
-  {
-    id: 2,
-    title: "Fashion",
-    hashtag: "#hi-Fashion",
-    tweets: 8464,
-  },
-  {
-    id: 3,
-    title: "Formula 1",
-    hashtag: "#ferrari",
-    tweets: 5586,
-  },
-  {
-    id: 4,
-    title: "Auto Racing",
-    hashtag: "#vettel",
-    tweets: 9416,
-  },
-];
+const trends = ref();
+trends.value = await trendsApiCall(5).then((response) => response.trends);
 </script>
 
 <template>
