@@ -1,12 +1,20 @@
-<script setup>
+<script lang="ts" setup>
 defineOptions({
   inheritAttrs: false,
 });
 defineProps({
+  modelValue: {
+    type: String,
+  },
   pill: {
     type: Boolean,
   },
 });
+
+const emit = defineEmits(["update:modelValue"]);
+const updateValue = (e: Event) => {
+  emit("update:modelValue", (e.target as HTMLInputElement).value);
+};
 </script>
 
 <template>
@@ -15,6 +23,8 @@ defineProps({
       type="text"
       class="input"
       v-bind="$attrs"
+      :value="modelValue"
+      @input="updateValue"
       :class="{
         'has-prefix': $slots.prefix,
         'has-suffix': $slots.suffix,
@@ -42,8 +52,10 @@ defineProps({
   }
 }
 .input {
+  box-sizing: border-box;
   width: 100%;
   background: $color-light;
+  border: 1px solid $color-border;
   padding: spacing(2) spacing(5);
   outline: 0;
   border-radius: $border-radius-input;
@@ -84,16 +96,18 @@ defineProps({
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
-.prefix {
+.prefix,
+.suffix {
+  display: flex;
   position: absolute;
   top: 50%;
-  left: spacing(4);
   transform: translateY(-50%);
 }
+
+.prefix {
+  left: spacing(4);
+}
 .suffix {
-  position: absolute;
-  top: 50%;
   right: spacing(4);
-  transform: translateY(-50%);
 }
 </style>
