@@ -6,11 +6,11 @@ import { TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { ProfileUserInfo } from "@/features/profile";
 import { TweetList } from "@/features/tweets";
-import { profileApiCall } from "@/features/profile";
+import { profileApiCall, useProfile } from "@/features/profile";
 import { useRoute, onBeforeRouteUpdate } from "vue-router";
 
 const route = useRoute();
-const profile = ref();
+const { profile } = useProfile();
 
 profile.value = await profileApiCall(route.params.id);
 

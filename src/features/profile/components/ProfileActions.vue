@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import ProfileEditButton from "./ProfileEditButton.vue";
 import ProfileLogoutButton from "./ProfileLogoutButton.vue";
+import ProfileFollowButton from "./ProfileFollowButton.vue";
+
+import { useAuth } from "@/features/auth";
+const { currentUser } = useAuth();
+
+defineProps(["profile"]);
 </script>
 
 <template>
   <div class="profile-actions">
-    <ProfileEditButton />   
-    <ProfileLogoutButton />
+    <template v-if="currentUser.username === profile.username">
+      <ProfileEditButton />
+      <ProfileLogoutButton />
+    </template>
+    <template v-if="currentUser.username !== profile.username">
+      <ProfileFollowButton :profile="profile" />
+    </template>
   </div>
 </template>
 

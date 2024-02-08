@@ -10,7 +10,7 @@ defineProps(["profile"]);
   <img :src="profile.banner || fallBackImage" alt="" class="banner" />
   <div class="user-avatar-wrapper">
     <UserAvatar size="xl" :img="profile.avatar" class="avatar" />
-    <ProfileActions />
+    <ProfileActions :profile="profile" />
   </div>
   <div class="user-info">
     <div class="fullname">{{ profile.name }}</div>
@@ -19,12 +19,12 @@ defineProps(["profile"]);
       {{ profile.bio }}
     </div>
     <div class="audience-info">
-      <RouterLink to="/fadamakis/following" class="audience-info-item">
+      <div class="audience-info-item">
         <strong>{{ profile.following.length }}</strong> Following
-      </RouterLink>
-      <RouterLink to="/fadamakis/followers" class="audience-info-item">
+      </div>
+      <div class="audience-info-item">
         <strong>{{ profile.followers.length }}</strong> Followers
-      </RouterLink>
+      </div>
     </div>
   </div>
 </template>
@@ -65,6 +65,7 @@ defineProps(["profile"]);
   color: $color-secondary;
 }
 .audience-info {
+  display: flex;
   font-size: $font-size-0;
   margin-top: spacing(2);
   color: $color-gray;
