@@ -5,18 +5,19 @@ import AppLogo from "@/components/AppLogo.vue";
 import { UserAvatar } from "@/features/profile";
 import { useMq } from "vue3-mq";
 const mq = useMq();
+
+import { useAuth } from "@/features/auth";
+const { currentUser } = useAuth();
 </script>
 
 <template>
   <header>
     <AppLogo />
     <AppNavigation />
-    <ProfileCard v-if="mq.xlPlus" />
-    <UserAvatar
-      class="user-avatar"
-      v-else
-      img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg"
-    />
+    <template v-if="currentUser">
+      <ProfileCard v-if="mq.xlPlus" :profile="currentUser" />
+      <UserAvatar class="user-avatar" v-else :img="currentUser.avatar" />
+    </template>
   </header>
 </template>
 

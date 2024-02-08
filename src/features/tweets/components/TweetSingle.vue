@@ -18,9 +18,7 @@ const owner = props.owner || props.tweet.owner;
         <RouterLink :to="`/${owner.username}`" class="tweet-info-name">{{
           owner.name
         }}</RouterLink>
-        <RouterLink :to="`/${owner.username}`">
-          {{ owner.username }}
-        </RouterLink>
+        <RouterLink :to="`/${owner.username}`">@{{ owner.username }}</RouterLink>
         <span>·</span>
         <span>{{ useTimeAgo(tweet.date).value }}</span>
       </div>

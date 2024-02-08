@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+import defaultAvatar from "@/assets/images/default-avatar.webp";
 import { PropType } from "vue";
 enum sizes {
   sm = "sm",
@@ -18,7 +19,7 @@ defineProps({
   },
   img: {
     type: String,
-    required: true,
+    default: defaultAvatar,
   },
 });
 </script>

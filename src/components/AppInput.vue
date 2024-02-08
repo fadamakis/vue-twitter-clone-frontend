@@ -9,6 +9,9 @@ defineProps({
   pill: {
     type: Boolean,
   },
+  hasError: {
+    type: Boolean,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -29,6 +32,7 @@ const updateValue = (e: Event) => {
         'has-prefix': $slots.prefix,
         'has-suffix': $slots.suffix,
         'has-label': $slots.label,
+        'has-error': hasError,
         pill,
       }"
     />
@@ -62,6 +66,9 @@ const updateValue = (e: Event) => {
   &.pill {
     border-radius: $border-radius-pill;
   }
+  &.has-error {
+    border-color: $color-danger;
+  }
   &.has-prefix {
     padding-left: spacing(12);
   }
@@ -89,7 +96,7 @@ const updateValue = (e: Event) => {
 .input.has-prefix ~ .label {
   left: spacing(7);
 }
-
+.input:autofill ~ .label,
 .input:focus ~ .label,
 .input:not(:placeholder-shown) ~ .label {
   opacity: 0.65;

@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import UserAvatar from "./UserAvatar.vue";
-import ProfileEditButton from "./ProfileEditButton.vue";
+import ProfileActions from "./ProfileActions.vue";
+import fallBackImage from "@/assets/images/default-cover.png";
 
 defineProps(["profile"]);
 </script>
 
 <template>
-  <img :src="profile.banner" alt="" class="banner" />
+  <img :src="profile.banner || fallBackImage" alt="" class="banner" />
   <div class="user-avatar-wrapper">
     <UserAvatar size="xl" :img="profile.avatar" class="avatar" />
-    <ProfileEditButton />
+    <ProfileActions />
   </div>
   <div class="user-info">
     <div class="fullname">{{ profile.name }}</div>
-    <div class="username">{{ profile.username }}</div>
+    <div class="username">@{{ profile.username }}</div>
     <div class="bio">
       {{ profile.bio }}
     </div>

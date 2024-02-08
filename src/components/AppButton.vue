@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :class="[size, color]">
+  <button class="button" :class="[size, color, { 'full-width': fullWidth }]">
     <slot />
   </button>
 </template>
@@ -32,6 +32,10 @@ defineProps({
     type: String as PropType<keyof typeof colors>,
     default: colors.primary,
   },
+  fullWidth: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -62,6 +66,9 @@ defineProps({
   &.xl {
     padding: spacing(5) spacing(12);
     font-size: $font-size-3;
+  }
+  &.full-width {
+    width: 100%;
   }
   &.primary {
     background: $color-primary;

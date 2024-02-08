@@ -1,4 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import scrollBehavior from "./scrollBehavior";
+import redirectAuthenticatedUser from "./redirectAuthenticatedUser";
 
 export const paths = {
   timeline: "/",
@@ -11,6 +13,8 @@ export const paths = {
   conversation: "/conversation/:id",
   messages: "/messages",
   search: "/search",
+  login: "/login",
+  register: "/register",
   profile: "/:id",
   notFound: "/:pathMatch(.*)*",
 };
@@ -21,21 +25,38 @@ const routes = [
   { path: paths.tweet, component: () => import("@/pages/TweetPage.vue") },
   { path: paths.trends, component: () => import("@/pages/TrendsPage.vue") },
   { path: paths.connect, component: () => import("@/pages/ConnectPage.vue") },
-  { path: paths.bookmarks, component: () => import("@/pages/BookmarksPage.vue"), },
-  { path: paths.notifications, component: () => import("@/pages/NotificationsPage.vue"), },
-  { path: paths.conversation, component: () => import("@/pages/ConversationPage.vue"), },
-  { path: paths.messages, component: () => import("@/pages/MessagesPage.vue"), },
-  { path: paths.search, component: () => import("@/pages/SearchPage.vue"), },
+  {
+    path: paths.bookmarks,
+    component: () => import("@/pages/BookmarksPage.vue"),
+  },
+  {
+    path: paths.notifications,
+    component: () => import("@/pages/NotificationsPage.vue"),
+  },
+  {
+    path: paths.conversation,
+    component: () => import("@/pages/ConversationPage.vue"),
+  },
+  { path: paths.messages, component: () => import("@/pages/MessagesPage.vue") },
+  { path: paths.search, component: () => import("@/pages/SearchPage.vue") },
+  {
+    path: paths.login,
+    component: () => import("@/pages/LoginPage.vue"),
+    beforeEnter: redirectAuthenticatedUser,
+  },
+  {
+    path: paths.register,
+    component: () => import("@/pages/RegisterPage.vue"),
+    beforeEnter: redirectAuthenticatedUser,
+  },
   { path: paths.profile, component: () => import("@/pages/ProfilePage.vue") },
-  { path: paths.notFound, component: () => import("@/pages/NotFound.vue"), },
+  { path: paths.notFound, component: () => import("@/pages/NotFound.vue") },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  scrollBehavior() {
-    return { top: 0 }
-  },
+  scrollBehavior,
 });
 
 export default router;

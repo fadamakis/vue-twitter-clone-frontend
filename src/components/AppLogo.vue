@@ -5,7 +5,7 @@ const mq = useMq();
 </script>
 
 <template>
-  <AppIcon icon="twitter" fill="black" :size="mq.xlPlus ? '5x' : '3x'" class="logo" />
+  <AppIcon icon="twitter" :size="mq.xlPlus ? '5x' : '3x'" class="logo" />
 </template>
 
 <style lang="scss">
