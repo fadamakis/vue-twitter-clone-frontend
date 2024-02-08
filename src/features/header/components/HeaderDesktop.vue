@@ -14,10 +14,10 @@ const { currentUser } = useAuth();
   <header>
     <AppLogo />
     <AppNavigation />
-    <template v-if="currentUser">
+    <RouterLink :to="currentUser.username" v-if="currentUser">
       <ProfileCard v-if="mq.xlPlus" :profile="currentUser" />
       <UserAvatar class="user-avatar" v-else :img="currentUser.avatar" />
-    </template>
+    </RouterLink>
   </header>
 </template>
 
