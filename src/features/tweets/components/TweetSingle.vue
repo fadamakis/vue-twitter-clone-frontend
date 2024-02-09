@@ -1,11 +1,31 @@
 <script setup>
+import { computed } from "vue";
 import AppIcon from "@/components/AppIcon.vue";
 import { UserAvatar } from "@/features/profile";
 import { useTimeAgo } from "@vueuse/core";
+import { tweetLikeApiCall, tweetUnLikeApiCall } from "@/features/tweets";
+import { useAuth } from "@/features/auth";
+
+const { currentUser } = useAuth();
 
 const props = defineProps(["tweet", "owner"]);
 
 const owner = props.owner || props.tweet.owner;
+
+async function likeTweet() {
+  await tweetLikeApiCall(props.tweet._id);
+  props.tweet.likes.push(currentUser.value._id);
+}
+async function unLikeTweet() {
+  await tweetUnLikeApiCall(props.tweet._id);
+  props.tweet.likes = props.tweet.likes.filter(
+    (userId) => userId !== currentUser.value._id
+  );
+}
+
+const isLiked = computed(() => {
+  return props.tweet.likes?.includes(currentUser.value._id);
+});
 </script>
 
 <template>
@@ -15,9 +35,9 @@ const owner = props.owner || props.tweet.owner;
     </RouterLink>
     <div class="tweet-content">
       <div class="tweet-info">
-        <RouterLink :to="`/${owner.username}`" class="tweet-info-name">{{
-          owner.name
-        }}</RouterLink>
+        <RouterLink :to="`/${owner.username}`" class="tweet-info-name">
+          {{ owner.name }}
+        </RouterLink>
         <RouterLink :to="`/${owner.username}`">@{{ owner.username }}</RouterLink>
         <span>·</span>
         <span>{{ useTimeAgo(tweet.date).value }}</span>
@@ -31,7 +51,13 @@ const owner = props.owner || props.tweet.owner;
       <div class="tweet-actions">
         <AppIcon icon="chat" />
         <AppIcon icon="repeat" />
-        <AppIcon icon="heart" />
+        <AppIcon
+          icon="heart-fill"
+          fill="red"
+          @click.prevent="unLikeTweet"
+          v-if="isLiked"
+        />
+        <AppIcon icon="heart" @click.prevent="likeTweet" v-else />
         <AppIcon icon="bar-chart" />
         <AppIcon icon="share" />
       </div>
