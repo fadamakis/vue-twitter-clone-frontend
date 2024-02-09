@@ -24,7 +24,6 @@ async function handleSubmit() {
     localStorage.setItem("token", response.token);
     formError.value = {};
   } catch (error) {
-    console.log(error);
     formError.value = error.response.data;
   }
 }

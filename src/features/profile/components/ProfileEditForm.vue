@@ -1,47 +1,50 @@
 <script setup>
 import AppButton from "@/components/AppButton.vue";
 import AppInput from "@/components/AppInput.vue";
-import { UserAvatar } from "@/features/profile";
+import { UserAvatar, useProfile, profileUpdateApiCall } from "@/features/profile";
 import ImageEditable from "./ImageEditable.vue";
+import fallBackImage from "@/assets/images/default-cover.png";
+
 const emit = defineEmits(["close"]);
+
+const { profile } = useProfile();
+
+async function updateProfile() {
+  await profileUpdateApiCall(profile.value._id, {
+    name: profile.value.name,
+    bio: profile.value.bio,
+    location: profile.value.location,
+    website: profile.value.website,
+  });
+  emit("close");
+}
 </script>
 
 <template>
   <ImageEditable>
-    <img
-      src="https://pbs.twimg.com/profile_banners/525193422/1633505307/600x200"
-      alt=""
-      class="banner"
-    />
+    <img :src="profile.banner || fallBackImage" alt="" class="banner" />
   </ImageEditable>
   <div class="user-avatar-wrapper">
     <ImageEditable>
-      <UserAvatar
-        size="xl"
-        img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_400x400.jpg"
-        class="avatar"
-      />
+      <UserAvatar size="xl" :img="profile.avatar" class="avatar" />
     </ImageEditable>
   </div>
 
-  <AppInput value="Fotis Adamakis" placeholder="Full Name">
+  <AppInput v-model="profile.name" placeholder="Full Name" required>
     <template #label> Full Name </template>
   </AppInput>
-  <AppInput
-    value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita deleniti laboriosam eligendi. Incidunt dolores dicta veritatis. Quaerat ad, magnam esse, illo atque delectus minus, nihil adipisci tempora nobis iusto. Excepturi?"
-    placeholder="Bio"
-  >
+  <AppInput v-model="profile.bio" placeholder="Bio">
     <template #label> Bio </template>
   </AppInput>
-  <AppInput value="Barcelona" placeholder="Location">
+  <AppInput v-model="profile.location" placeholder="Location">
     <template #label> Location </template>
   </AppInput>
 
-  <AppInput value="fadamakis.com" placeholder="Website">
+  <AppInput v-model="profile.website" placeholder="Website">
     <template #label> Website </template>
   </AppInput>
   <div class="cta-button">
-    <AppButton @click="emit('close')"> Save </AppButton>
+    <AppButton @click="updateProfile"> Save </AppButton>
   </div>
 </template>
 

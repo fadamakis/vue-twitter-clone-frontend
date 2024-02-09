@@ -7,7 +7,7 @@ const modalVisible = ref(false);
 </script>
 
 <template>
-  <AppButton color="light" size="sm" @click="modalVisible = true">
+  <AppButton color="dark" size="sm" @click="modalVisible = true">
     Edit Profile
   </AppButton>
   <ProfileEditModal v-if="modalVisible" @close="modalVisible = false" />

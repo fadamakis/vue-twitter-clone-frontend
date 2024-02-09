@@ -20,8 +20,9 @@ const formError = ref({});
 async function handleSubmit() {
   try {
     const response = await registerApiCall(userInfo);
+    setUser(response.user);
+    router.push(response.user.username);
     localStorage.setItem("token", response.token);
-    router.push(response.username);
     formError.value = {};
   } catch (error) {
     formError.value = error.response.data;
