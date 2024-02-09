@@ -1,12 +1,15 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
 import { RouterLink } from "vue-router";
+defineProps(["notification"]);
 </script>
 <template>
-  <RouterLink to="/profile">
+  <RouterLink :to="notification.sender.username">
     <div class="notification">
       <AppIcon icon="person-fill" size="4x" fill="#23b7d9" />
-      <p><strong>Fotis Adamakis</strong> followed you</p>
+      <p>
+        <strong>{{ notification.sender.name }}</strong> followed you
+      </p>
     </div>
   </RouterLink>
 </template>
