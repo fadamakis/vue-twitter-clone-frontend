@@ -4,7 +4,8 @@ import AppButton from "@/components/AppButton.vue";
 import AppInput from "@/components/AppInput.vue";
 import AppNotification from "@/components/AppNotification.vue";
 import { ref, reactive } from "vue";
-import { registerApiCall } from "@/features/auth";
+import { registerApiCall, useAuth } from "@/features/auth";
+
 import { useRouter } from "vue-router";
 const router = useRouter();
 
@@ -20,7 +21,7 @@ const formError = ref({});
 async function handleSubmit() {
   try {
     const response = await registerApiCall(userInfo);
-    setUser(response.user);
+    useAuth().setUser(response.user);
     router.push(response.user.username);
     localStorage.setItem("token", response.token);
     formError.value = {};
