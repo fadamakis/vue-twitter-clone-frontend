@@ -2,14 +2,16 @@
 import { AppNavigation } from "@/features/navigation";
 import AppLogo from "@/components/AppLogo.vue";
 import { UserAvatar } from "@/features/profile";
+
+import { useAuth } from "@/features/auth";
+const { currentUser } = useAuth();
 </script>
 
 <template>
   <header>
-    <UserAvatar
-      size="sm"
-      img="https://pbs.twimg.com/profile_images/1263362878922469376/KdZALDFP_normal.jpg"
-    />
+    <RouterLink :to="currentUser.username">
+      <UserAvatar size="sm" :img="currentUser.avatar" />
+    </RouterLink>
     <div class="logo">
       <AppLogo />
     </div>
