@@ -4,14 +4,16 @@ defineProps(["profile"]);
 </script>
 
 <template>
-  <div class="profile-card">
+  <RouterLink :to="profile.username" class="profile-card">
     <UserAvatar :img="profile.avatar" />
     <div class="profile-card-user-info">
       <p class="profile-card-name">{{ profile.name }}</p>
       <p class="profile-card-username">@{{ profile.username }}</p>
     </div>
-    <slot name="action" />
-  </div>
+    <div @click.prevent>
+      <slot name="action" />
+    </div>
+  </RouterLink>
 </template>
 
 <style scoped lang="scss">

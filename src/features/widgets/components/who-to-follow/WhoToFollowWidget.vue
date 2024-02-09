@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import AppButton from "@/components/AppButton.vue";
-import { ProfileCard } from "@/features/profile";
+import { ProfileCard, ProfileFollowButton } from "@/features/profile";
 import { AppWidget, friendSuggestionsApiCall } from "@/features/widgets";
 
 const response = ref();
@@ -13,7 +12,7 @@ response.value = await friendSuggestionsApiCall();
     <div>
       <ProfileCard v-for="profile in response" :profile="profile">
         <template #action>
-          <AppButton size="sm" color="dark">Follow</AppButton>
+          <ProfileFollowButton :profile="profile" />
         </template>
       </ProfileCard>
     </div>
