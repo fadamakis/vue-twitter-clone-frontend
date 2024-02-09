@@ -1,12 +1,15 @@
 <script setup>
 import AppIcon from "@/components/AppIcon.vue";
 import { RouterLink } from "vue-router";
+defineProps(["notification"]);
 </script>
 <template>
-  <RouterLink to="/status/a">
+  <RouterLink :to="`/status/${notification?.tweetId}`">
     <div class="notification">
       <AppIcon icon="repeat" size="4x" fill="#36af24" />
-      <p><strong>Fotis Adamakis</strong> reposted your tweet</p>
+      <p>
+        <strong>{{ notification.sender.name }}</strong> reposted your tweet
+      </p>
     </div>
   </RouterLink>
 </template>

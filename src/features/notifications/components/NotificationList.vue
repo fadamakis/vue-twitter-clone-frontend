@@ -14,6 +14,14 @@ const componentsMap = {
   <template v-for="notification in notifications">
     <component :is="componentsMap[notification.type]" :notification="notification" />
   </template>
-  <NotificationLike v-for="i in 3" />
-  <NotificationRepost v-for="i in 3" />
+  <div v-if="!notifications.length" class="empty-state">Nothing's here...yet!</div>
 </template>
+
+<style lang="scss" scoped>
+.empty-state {
+  display: flex;
+  justify-content: center;
+  padding: spacing(5);
+  font-size: $font-size-3;
+}
+</style>
