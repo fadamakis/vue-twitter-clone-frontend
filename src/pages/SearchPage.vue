@@ -4,13 +4,21 @@ import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { WhoToFollowWidget, TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
+import { ProfileCard, ProfileFollowButton } from "@/features/profile";
+import { TweetList, tweetSearchApiCall } from "@/features/tweets";
 import AppTabs from "@/components/AppTabs.vue";
-import ProfileCard from "@/features/profile/components/ProfileCard.vue";
-import AppButton from "@/components/AppButton.vue";
-import { TweetList, tweetListApiCall } from "@/features/tweets";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+import EmptyState from "@/components/EmptyState.vue";
 
-const tweets = ref();
-tweets.value = await tweetListApiCall();
+const searchResults = ref();
+
+const searchTerm = useRoute().query.q;
+
+searchResults.value = await tweetSearchApiCall(searchTerm);
+
+onBeforeRouteUpdate(async (to) => {
+  searchResults.value = await tweetSearchApiCall(to.query.q);
+});
 </script>
 
 <template>
@@ -21,16 +29,18 @@ tweets.value = await tweetListApiCall();
     </div>
     <AppTabs :tabs="['Tweets', 'People']">
       <template #tab1>
-        <TweetList :tweets="tweets" />
+        <TweetList :tweets="searchResults.tweets" v-if="searchResults.tweets.length" />
+        <EmptyState v-else />
       </template>
       <template #tab2>
-        <div class="profiles">
-          <ProfileCard v-for="i in 5">
+        <div class="profiles" v-if="searchResults.profiles.length">
+          <ProfileCard v-for="profile in searchResults.profiles" :profile="profile">
             <template #action>
-              <AppButton size="sm" color="dark">Follow</AppButton>
+              <ProfileFollowButton :profile="profile" />
             </template>
           </ProfileCard>
         </div>
+        <EmptyState v-else />
       </template>
     </AppTabs>
     <template #sidebar>

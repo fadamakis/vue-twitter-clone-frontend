@@ -22,7 +22,7 @@ onBeforeRouteUpdate(async (to) => {
 <template>
   <ThreeColumnLayout>
     <PageTitle has-back-button>Profile</PageTitle>
-    <ProfileUserInfo :profile="profile" />
+    <ProfileUserInfo :profile="profile" v-if="profile" />
     <TweetList :tweets="profile.tweets" :owner="profile" />
     <template #sidebar>
       <SearchWidget />

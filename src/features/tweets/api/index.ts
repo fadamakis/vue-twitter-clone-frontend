@@ -8,6 +8,10 @@ export function tweetListApiCall() {
   return fetch(`/tweets`);
 }
 
+export function tweetSearchApiCall(term) {
+  return fetch.post(`/search`, { term });
+}
+
 export function tweetLikeApiCall(tweetId) {
   return fetch.put(`/tweets/like/${tweetId}`);
 }

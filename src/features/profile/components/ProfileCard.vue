@@ -4,7 +4,7 @@ defineProps(["profile"]);
 </script>
 
 <template>
-  <RouterLink :to="profile.username" class="profile-card">
+  <RouterLink :to="`/${profile.username}`" class="profile-card">
     <UserAvatar :img="profile.avatar" />
     <div class="profile-card-user-info">
       <p class="profile-card-name">{{ profile.name }}</p>

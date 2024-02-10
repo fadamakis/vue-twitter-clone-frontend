@@ -3,17 +3,18 @@ defineProps(["trend", "index"]);
 </script>
 
 <template>
-  <div class="trend">
+  <RouterLink :to="{ path: '/search', query: { q: trend.hashtag } }" class="trend">
     <div class="trend-title">{{ index + 1 }} · {{ trend.hashtag }}</div>
     <div class="trend-count">{{ trend.count }} posts</div>
-  </div>
+  </RouterLink>
 </template>
 
 <style lang="scss" scoped>
 .trend {
+  display: block;
   font-size: $font-size-0;
-  color: #536471;
-  margin-bottom: 16px;
+  color: $color-gray;
+  margin-bottom: spacing(4);
 }
 
 .trend-title {

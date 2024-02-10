@@ -2,6 +2,8 @@
 import NotificationFollow from "./NotificationFollow.vue";
 import NotificationLike from "./NotificationLike.vue";
 import NotificationRepost from "./NotificationRepost.vue";
+import EmptyState from "@/components/EmptyState.vue";
+
 defineProps(["notifications"]);
 
 const componentsMap = {
@@ -14,14 +16,5 @@ const componentsMap = {
   <template v-for="notification in notifications">
     <component :is="componentsMap[notification.type]" :notification="notification" />
   </template>
-  <div v-if="!notifications.length" class="empty-state">Nothing's here...yet!</div>
+  <EmptyState v-if="!notifications.length" />
 </template>
-
-<style lang="scss" scoped>
-.empty-state {
-  display: flex;
-  justify-content: center;
-  padding: spacing(5);
-  font-size: $font-size-3;
-}
-</style>
