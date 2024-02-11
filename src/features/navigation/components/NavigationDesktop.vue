@@ -2,6 +2,9 @@
 import AppIcon from "@/components/AppIcon.vue";
 import { paths } from "@/router";
 import { TweetCreateActionDesktop } from "@/features/tweet-create";
+import { useAuth } from "@/features/auth";
+
+const { currentUser } = useAuth();
 
 const routes = [
   {
@@ -31,7 +34,7 @@ const routes = [
   },
   {
     name: "Profile",
-    path: paths.profile,
+    path: `/${currentUser.value.username}`,
     icon: "person",
   },
 ];
