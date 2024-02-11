@@ -26,6 +26,10 @@ async function unLikeTweet() {
 const isLiked = computed(() => {
   return props.tweet.likes?.includes(currentUser.value._id);
 });
+
+function imageUrl(path) {
+  return import.meta.env.VITE_BACKEND_URL + path;
+}
 </script>
 
 <template>
@@ -46,7 +50,7 @@ const isLiked = computed(() => {
         {{ tweet.body }}
       </p>
       <div class="tweet-media" v-if="tweet.media">
-        <img :src="tweet.media.src" alt="" />
+        <img :src="imageUrl(tweet.media)" alt="" />
       </div>
       <div class="tweet-actions">
         <AppIcon icon="chat" />

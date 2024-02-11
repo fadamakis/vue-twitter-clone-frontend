@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import AppIcon from "@/components/AppIcon.vue";
+import ImageUpload from "./ImageUpload.vue";
 </script>
 <template>
   <div class="tweet-additional-actions">
-    <AppIcon icon="image" />
+    <ImageUpload>
+      <AppIcon icon="image" clickable />
+    </ImageUpload>
     <AppIcon icon="filetype-gif" />
     <AppIcon icon="list-ol" />
     <AppIcon icon="emoji-smile" />

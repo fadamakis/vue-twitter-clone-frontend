@@ -6,6 +6,7 @@ import TweetFormAdditionalActions from "./TweetFormAdditionalActions.vue";
 import { useAuth } from "@/features/auth";
 import { tweetCreateApiCall } from "@/features/tweet-create";
 import { useTweetList } from "@/features/tweets";
+import { useImageUpload } from "../composables/useImageUpload";
 
 const { tweets } = useTweetList();
 
@@ -14,9 +15,19 @@ const emit = defineEmits(["posted"]);
 
 const text = ref();
 
+const { file } = useImageUpload();
+
 async function createTweet() {
-  const tweet = await tweetCreateApiCall(text.value);
+  const formData = new FormData();
+  formData.append("text", text.value);
+  if (file.value) {
+    formData.append("media", file.value);
+  }
+
+  const tweet = await tweetCreateApiCall(formData);
+
   text.value = "";
+  file.value = null;
   tweets.value.unshift(tweet);
   emit("posted");
 }
@@ -30,10 +41,11 @@ async function createTweet() {
         @keydown.enter.prevent="createTweet"
         class="tweet-input"
         placeholder="What's happening?"
-        rows="1"
+        rows="2"
         cols="50"
         v-model="text"
       />
+      <div class="tweet-attachment" v-if="file?.name">Attached: {{ file?.name }}</div>
       <div class="tweet-actions">
         <TweetFormAdditionalActions />
         <AppButton @click="createTweet">Post</AppButton>
@@ -63,13 +75,11 @@ async function createTweet() {
   resize: none;
   outline: none;
   padding: spacing(1) 0;
-  transition: height 0.2s;
-  height: 2em;
-  &:focus {
-    height: 5em;
-  }
 }
-
+.tweet-attachment {
+  font-size: $font-size-0;
+  font-style: italic;
+}
 .tweet-actions {
   display: flex;
   align-items: center;
