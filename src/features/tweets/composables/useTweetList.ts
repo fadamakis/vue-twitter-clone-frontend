@@ -1,16 +1,11 @@
 import { ref } from "vue";
 import { tweetListApiCall } from "@/features/tweets";
 
+const tweets = ref();
 
 export default function () {
-  const tweets = ref();
-
   async function fetchTweetList() {
-    tweets.value =  await tweetListApiCall();
-  }
-
-  async function fetchProfileList() {
-    tweets.value =  await tweetListApiCall();
+    tweets.value = await tweetListApiCall();
   }
 
   return {

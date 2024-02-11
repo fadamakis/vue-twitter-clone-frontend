@@ -1,24 +1,42 @@
 <script setup>
+import { ref } from "vue";
 import AppButton from "@/components/AppButton.vue";
 import { UserAvatar } from "@/features/profile";
 import TweetFormAdditionalActions from "./TweetFormAdditionalActions.vue";
+import { useAuth } from "@/features/auth";
+import { tweetCreateApiCall } from "@/features/tweet-create";
+import { useTweetList } from "@/features/tweets";
 
-const userInfo = {
-  name: "John Doe",
-  handle: "@johndoe",
-  image: "https://i.pravatar.cc/150?img=68",
-};
+const { tweets } = useTweetList();
+
+const currentUser = useAuth();
 const emit = defineEmits(["posted"]);
+
+const text = ref();
+
+async function createTweet() {
+  const tweet = await tweetCreateApiCall(text.value);
+  text.value = "";
+  tweets.value.unshift(tweet);
+  emit("posted");
+}
 </script>
 <template>
   <div class="tweet-creation-form">
-    <UserAvatar :img="userInfo.image" class="user-avatar" />
+    <UserAvatar :img="currentUser.avatar" class="user-avatar" />
 
     <div class="tweet-creation-content">
-      <textarea class="tweet-input" placeholder="What's happening?" rows="1" cols="50" />
+      <textarea
+        @keydown.enter.prevent="createTweet"
+        class="tweet-input"
+        placeholder="What's happening?"
+        rows="1"
+        cols="50"
+        v-model="text"
+      />
       <div class="tweet-actions">
         <TweetFormAdditionalActions />
-        <AppButton @click="emit('posted')">Post</AppButton>
+        <AppButton @click="createTweet">Post</AppButton>
       </div>
     </div>
   </div>
@@ -27,10 +45,7 @@ const emit = defineEmits(["posted"]);
 <style lang="scss" scoped>
 .tweet-creation-form {
   display: flex;
-  padding: spacing(4);
-  border-bottom: 1px solid $color-border;
 }
-
 .tweet-creation-content {
   display: flex;
   flex-direction: column;
@@ -48,6 +63,11 @@ const emit = defineEmits(["posted"]);
   resize: none;
   outline: none;
   padding: spacing(1) 0;
+  transition: height 0.2s;
+  height: 2em;
+  &:focus {
+    height: 5em;
+  }
 }
 
 .tweet-actions {

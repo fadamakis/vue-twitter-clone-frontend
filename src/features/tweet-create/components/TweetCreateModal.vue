@@ -1,6 +1,6 @@
 <script setup>
 import AppModal from "@/components/AppModal.vue";
-import { TweetCreateModalForm } from "@/features/tweet-create";
+import TweetCreateForm from "@/features/tweet-create/components/TweetCreateForm.vue";
 
 const emit = defineEmits(["close"]);
 function closeModal() {
@@ -11,7 +11,7 @@ function closeModal() {
   <AppModal @close="closeModal">
     <template #title> Post New Tweet </template>
     <template #body>
-      <TweetCreateModalForm @posted="closeModal" />
+      <TweetCreateForm @posted="closeModal" />
     </template>
   </AppModal>
 </template>
