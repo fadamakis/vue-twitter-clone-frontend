@@ -15,7 +15,7 @@ const routes = [
   {
     name: "Explore",
     path: paths.explore,
-    icon: "search",
+    icon: "search-heart",
   },
   {
     name: "Notifications",
@@ -42,8 +42,17 @@ const routes = [
 
 <template>
   <nav class="nav">
-    <RouterLink v-for="route in routes" :to="route.path" class="link">
-      <AppIcon :icon="route.icon" size="3x" class="icon" />
+    <RouterLink
+      v-for="route in routes"
+      :to="route.path"
+      class="link"
+      v-slot="{ isActive }"
+    >
+      <AppIcon
+        :icon="isActive ? route.icon + '-fill' : route.icon"
+        size="3x"
+        class="icon"
+      />
       <span class="route-name">{{ route.name }}</span>
     </RouterLink>
 
@@ -63,9 +72,17 @@ const routes = [
   display: flex;
   align-items: center;
   padding: spacing(3);
+  margin-top: spacing(2);
   border-radius: $border-radius-pill;
   font-size: $font-size-3;
   color: $color-dark;
+}
+
+.link:hover {
+  background-color: $color-light-hover;
+}
+.router-link-active {
+  font-weight: bold;
 }
 
 .route-name {
@@ -73,10 +90,6 @@ const routes = [
   @include breakpoint(xl) {
     display: flex;
   }
-}
-
-.link:hover {
-  background-color: $color-light-hover;
 }
 .icon {
   flex-shrink: 0;
