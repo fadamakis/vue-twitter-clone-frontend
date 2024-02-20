@@ -12,7 +12,7 @@ response.value = await friendSuggestionsApiCall();
     <div>
       <ProfileCard v-for="profile in response" :profile="profile">
         <template #action>
-          <ProfileFollowButton :profile="profile" />
+          <ProfileFollowButton :profile="profile" class="profile-card-action" />
         </template>
       </ProfileCard>
     </div>
@@ -22,6 +22,13 @@ response.value = await friendSuggestionsApiCall();
 </template>
 
 <style lang="scss" scoped>
+.profile-card-action {
+  display: none;
+  @include breakpoint(xl) {
+    display: block;
+  }
+}
+
 .cta {
   color: $color-primary;
   font-size: $font-size-0;

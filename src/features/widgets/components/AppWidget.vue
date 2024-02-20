@@ -21,6 +21,7 @@ defineProps({
   border-radius: $border-radius;
   padding: spacing(4);
   margin: spacing(4) 0;
+  overflow: hidden;
 }
 .app-widget-title {
   font-size: $font-size-2;
