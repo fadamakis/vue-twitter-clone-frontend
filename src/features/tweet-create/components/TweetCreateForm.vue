@@ -19,7 +19,13 @@ const { file } = useImageUpload();
 
 async function createTweet() {
   const formData = new FormData();
-  formData.append("text", text.value);
+  if (!text.value) {
+    return;
+  }
+
+  if (text.value) {
+    formData.append("text", text.value);
+  }
   if (file.value) {
     formData.append("media", file.value);
   }
@@ -48,7 +54,7 @@ async function createTweet() {
       <div class="tweet-attachment" v-if="file?.name">Attached: {{ file?.name }}</div>
       <div class="tweet-actions">
         <TweetFormAdditionalActions />
-        <AppButton @click="createTweet">Post</AppButton>
+        <AppButton @click="createTweet" :disabled="!text">Post</AppButton>
       </div>
     </div>
   </div>
