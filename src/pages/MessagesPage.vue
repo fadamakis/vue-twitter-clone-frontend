@@ -1,5 +1,4 @@
 <script setup>
-import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { ConversationList, ConversationSingle } from "@/features/messages";
 import { useMq } from "vue3-mq";
@@ -7,13 +6,11 @@ const mq = useMq();
 </script>
 
 <template>
-  <TwoColumnLayout>
-    <PageTitle>Messages</PageTitle>
-    <div class="content">
-      <ConversationList class="conversation-list" />
-      <ConversationSingle v-if="mq.mdPlus" class="conversation" />
-    </div>
-  </TwoColumnLayout>
+  <PageTitle>Messages</PageTitle>
+  <div class="content">
+    <ConversationList class="conversation-list" />
+    <ConversationSingle v-if="mq.mdPlus" class="conversation" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

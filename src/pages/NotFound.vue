@@ -1,15 +1,12 @@
 <script setup>
-import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 import AppButton from "@/components/AppButton.vue";
 </script>
 
 <template>
-  <TwoColumnLayout>
-    <p class="content">
-      Hmm...this page doesn’t exist. Try searching for something else.
-      <AppButton size="sm">Search</AppButton>
-    </p>
-  </TwoColumnLayout>
+  <p class="content">
+    Hmm...this page doesn’t exist. Try searching for something else.
+    <AppButton size="sm">Search</AppButton>
+  </p>
 </template>
 
 <style lang="scss" scoped>

@@ -1,16 +1,13 @@
 <script setup>
-import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { ConversationSingle } from "@/features/messages";
 </script>
 
 <template>
-  <TwoColumnLayout>
-    <PageTitle>Conversation</PageTitle>
-    <div class="content">
-      <ConversationSingle class="conversation" />
-    </div>
-  </TwoColumnLayout>
+  <PageTitle>Conversation</PageTitle>
+  <div class="content">
+    <ConversationSingle class="conversation" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

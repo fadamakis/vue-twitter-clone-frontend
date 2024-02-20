@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/node": "^20.5.1",
+    "@vueuse/core": "^10.7.2",
     "autoprefixer": "^10.4.15",
     "axios": "^1.6.7",
     "bootstrap-icons": "^1.10.5",

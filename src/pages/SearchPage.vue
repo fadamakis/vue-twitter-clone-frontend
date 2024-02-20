@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import ThreeColumnLayout from "@/layouts/ThreeColumnLayout.vue";
 import PageTitle from "@/components/PageTitle.vue";
-import { WhoToFollowWidget, TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { ProfileCard, ProfileFollowButton } from "@/features/profile";
 import { TweetList, tweetSearchApiCall } from "@/features/tweets";
@@ -22,32 +20,26 @@ onBeforeRouteUpdate(async (to) => {
 </script>
 
 <template>
-  <ThreeColumnLayout>
-    <PageTitle>Search</PageTitle>
-    <div class="search-wrapper">
-      <SearchWidget />
-    </div>
-    <AppTabs :tabs="['Tweets', 'People']">
-      <template #tab1>
-        <TweetList :tweets="searchResults.tweets" v-if="searchResults.tweets.length" />
-        <EmptyState v-else />
-      </template>
-      <template #tab2>
-        <div class="profiles" v-if="searchResults.profiles.length">
-          <ProfileCard v-for="profile in searchResults.profiles" :profile="profile">
-            <template #action>
-              <ProfileFollowButton :profile="profile" />
-            </template>
-          </ProfileCard>
-        </div>
-        <EmptyState v-else />
-      </template>
-    </AppTabs>
-    <template #sidebar>
-      <TrendsWidget />
-      <WhoToFollowWidget />
+  <PageTitle>Search</PageTitle>
+  <div class="search-wrapper">
+    <SearchWidget />
+  </div>
+  <AppTabs :tabs="['Tweets', 'People']">
+    <template #tab1>
+      <TweetList :tweets="searchResults.tweets" v-if="searchResults.tweets.length" />
+      <EmptyState v-else />
     </template>
-  </ThreeColumnLayout>
+    <template #tab2>
+      <div class="profiles" v-if="searchResults.profiles.length">
+        <ProfileCard v-for="profile in searchResults.profiles" :profile="profile">
+          <template #action>
+            <ProfileFollowButton :profile="profile" />
+          </template>
+        </ProfileCard>
+      </div>
+      <EmptyState v-else />
+    </template>
+  </AppTabs>
 </template>
 
 <style lang="scss" scoped>

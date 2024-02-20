@@ -6,7 +6,7 @@ import { AppHeader } from "@/features/header";
   <div class="page">
     <AppHeader />
     <main>
-      <slot />
+      <router-view />
     </main>
   </div>
 </template>

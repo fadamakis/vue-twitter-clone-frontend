@@ -9,11 +9,15 @@ const mq = useMq();
   <div class="page">
     <AppHeader />
     <main>
-      <slot />
+      <Suspense>
+        <router-view />
+      </Suspense>
     </main>
 
     <aside v-if="mq.mdPlus">
-      <slot name="sidebar" />
+      <Suspense>
+        <router-view name="sidebar" />
+      </Suspense>
       <AppFooter />
     </aside>
   </div>
