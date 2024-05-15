@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import ThreeColumnLayout from "./ThreeColumnLayout.vue";
+import ThreeColumnLayout from "@/layouts//ThreeColumnLayout.vue";
 import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
-import BlankLayout from "./BlankLayout.vue";
+import BlankLayout from "@/layouts//BlankLayout.vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();

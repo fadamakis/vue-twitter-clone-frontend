@@ -89,9 +89,8 @@ const routes = [
   },
   {
     path: paths.notifications,
-    component: () => import("@/pages/NotificationsPage.vue"),
     components: {
-      default: () => import("@/pages/ExplorePage.vue"),
+      default: () => import("@/pages/NotificationsPage.vue"),
       sidebar: () => import("@/layouts/AppSidebar.vue"),
     },
     meta: {

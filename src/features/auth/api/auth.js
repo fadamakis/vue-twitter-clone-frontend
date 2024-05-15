@@ -7,3 +7,7 @@ export function registerApiCall(userInfo) {
 export function loginApiCall(userInfo) {
   return fetch.post(`/users/login`, userInfo)
 }
+
+export function validateSessionApiCall() {
+  return fetch.get(`/users/me`)
+}

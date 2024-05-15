@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import fetch from "@/lib/fetch";
+import { validateSessionApiCall } from "@/features/auth";
 import router from "@/router";
 
 const currentUser = ref(null);
@@ -11,8 +11,13 @@ export default function () {
 
   async function initializeUserSession() {
     try {
-      const activeUser = await fetch("/users/me");
-      setUser(activeUser);
+      const token = localStorage.getItem("token");
+      if (token) {
+        const activeUser = await validateSessionApiCall();
+        setUser(activeUser);
+      } else {
+        router.push("/login");
+      }
     } catch (_) {
       logout();
     }
