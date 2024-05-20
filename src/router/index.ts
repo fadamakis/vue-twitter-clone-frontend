@@ -17,7 +17,7 @@ export const paths = {
   register: "/register",
   profile: "/:id",
   notFound: "/:pathMatch(.*)*",
-};
+} as const;
 
 const routes = [
   { path: paths.timeline, component: () => import("@/pages/TimelinePage.vue") },
