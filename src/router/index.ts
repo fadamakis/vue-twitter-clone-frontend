@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import scrollBehavior from "./scrollBehavior";
 import redirectAuthenticatedUser from "./redirectAuthenticatedUser";
 
+import AppButton from "@/ui/components/AppButton.vue";
+
 export const paths = {
   timeline: "/",
   explore: "/explore",

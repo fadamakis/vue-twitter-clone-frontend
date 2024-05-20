@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import "./assets/styles/main.scss";
+import "./ui/styles/main.scss";
 import App from "./App.vue";
 import router from "@/router";
 import { Vue3Mq } from "vue3-mq";
