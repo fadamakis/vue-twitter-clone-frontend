@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import AppIcon from "@/components/AppIcon.vue";
+import AppIcon from "@/ui/components/AppIcon.vue";
 import { UserAvatar } from "@/features/profile";
 import { useTimeAgo } from "@vueuse/core";
 import { tweetLikeApiCall, tweetUnLikeApiCall } from "@/features/tweets";

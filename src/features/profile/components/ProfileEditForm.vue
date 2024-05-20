@@ -1,6 +1,6 @@
 <script setup>
-import AppButton from "@/components/AppButton.vue";
-import AppInput from "@/components/AppInput.vue";
+import AppButton from "@/ui/components/AppButton.vue";
+import AppInput from "@/ui/components/AppInput.vue";
 import { UserAvatar, useProfile, profileUpdateApiCall } from "@/features/profile";
 import ImageEditable from "./ImageEditable.vue";
 import fallBackImage from "@/assets/images/default-cover.png";

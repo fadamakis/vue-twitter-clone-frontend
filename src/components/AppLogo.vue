@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppIcon from "./AppIcon.vue";
+import AppIcon from "@/ui/components/AppIcon.vue";
 import { useMq } from "vue3-mq";
 const mq = useMq();
 </script>

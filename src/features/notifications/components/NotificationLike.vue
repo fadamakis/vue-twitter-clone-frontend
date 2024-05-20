@@ -1,5 +1,5 @@
 <script setup>
-import AppIcon from "@/components/AppIcon.vue";
+import AppIcon from "@/ui/components/AppIcon.vue";
 import { RouterLink } from "vue-router";
 defineProps(["notification"]);
 </script>

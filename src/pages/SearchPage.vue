@@ -6,7 +6,7 @@ import { WhoToFollowWidget, TrendsWidget } from "@/features/widgets";
 import { SearchWidget } from "@/features/search";
 import { ProfileCard, ProfileFollowButton } from "@/features/profile";
 import { TweetList, tweetSearchApiCall } from "@/features/tweets";
-import AppTabs from "@/components/AppTabs.vue";
+import AppTabs from "@/ui/components/AppTabs.vue";
 import { useRoute, onBeforeRouteUpdate } from "vue-router";
 import EmptyState from "@/components/EmptyState.vue";
 

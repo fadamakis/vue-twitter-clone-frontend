@@ -1,5 +1,5 @@
 <script setup>
-import AppModal from "@/components/AppModal.vue";
+import AppModal from "@/ui/components/AppModal.vue";
 import ProfileEditForm from "./ProfileEditForm.vue";
 const emit = defineEmits(["close"]);
 

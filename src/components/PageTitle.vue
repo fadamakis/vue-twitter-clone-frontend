@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppIcon from "./AppIcon.vue";
+import AppIcon from "@/ui/components/AppIcon.vue";
 defineProps({
   hasBackButton: {
     type: Boolean,

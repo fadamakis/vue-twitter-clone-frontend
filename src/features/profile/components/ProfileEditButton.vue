@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppButton from "@/components/AppButton.vue";
+import AppButton from "@/ui/components/AppButton.vue";
 import { ProfileEditModal } from "@/features/profile";
 import { ref } from "vue";
 

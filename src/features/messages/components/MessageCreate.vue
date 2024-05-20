@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AppInput from "@/components/AppInput.vue";
-import AppIcon from "@/components/AppIcon.vue";
+import AppInput from "@/ui/components/AppInput.vue";
+import AppIcon from "@/ui/components/AppIcon.vue";
 </script>
 
 <template>
