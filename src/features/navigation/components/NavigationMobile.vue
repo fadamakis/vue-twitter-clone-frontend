@@ -1,5 +1,5 @@
 <script setup>
-import AppIcon from "@/ui/components/AppIcon.vue";
+import AppIcon from "@/core-ui/components/AppIcon.vue";
 import { paths } from "@/router";
 import { TweetCreateActionMobile } from "@/features/tweet-create";
 

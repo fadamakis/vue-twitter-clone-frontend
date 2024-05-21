@@ -1,5 +1,5 @@
 <script setup>
-import AppModal from "@/ui/components/AppModal.vue";
+import AppModal from "@/core-ui/components/AppModal.vue";
 import TweetCreateForm from "@/features/tweet-create/components/TweetCreateForm.vue";
 
 const emit = defineEmits(["close"]);

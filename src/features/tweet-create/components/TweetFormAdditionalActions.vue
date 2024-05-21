@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppIcon from "@/ui/components/AppIcon.vue";
+import AppIcon from "@/core-ui/components/AppIcon.vue";
 import ImageUpload from "./ImageUpload.vue";
 </script>
 <template>

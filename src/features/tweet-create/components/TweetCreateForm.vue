@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import AppButton from "@/ui/components/AppButton.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
 import { UserAvatar } from "@/features/profile";
 import TweetFormAdditionalActions from "./TweetFormAdditionalActions.vue";
 import { useAuth } from "@/features/auth";

@@ -1,6 +1,6 @@
 <script setup>
 import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
-import AppButton from "@/ui/components/AppButton.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
 </script>
 
 <template>

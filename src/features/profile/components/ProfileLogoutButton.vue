@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppButton from "@/ui/components/AppButton.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
 import router from "@/router";
 import { useAuth } from "@/features/auth";
 

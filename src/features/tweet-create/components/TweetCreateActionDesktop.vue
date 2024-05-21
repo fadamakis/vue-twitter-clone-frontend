@@ -3,8 +3,8 @@ const TweetCreateModal = defineAsyncComponent(
   () => import("@/features/tweet-create/components/TweetCreateModal.vue")
 );
 import { MqResponsive } from "vue3-mq";
-import AppButton from "@/ui/components/AppButton.vue";
-import AppIcon from "@/ui/components/AppIcon.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
+import AppIcon from "@/core-ui/components/AppIcon.vue";
 import { ref, defineAsyncComponent } from "vue";
 const modalVisible = ref(false);
 </script>

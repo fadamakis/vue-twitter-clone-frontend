@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AppIcon from "@/ui/components/AppIcon.vue";
-import AppButton from "@/ui/components/AppButton.vue";
+import AppIcon from "@/core-ui/components/AppIcon.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
 import { UserAvatar } from "@/features/profile";
 
 const userInfo = {

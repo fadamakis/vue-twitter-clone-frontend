@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AppIcon from "@/ui/components/AppIcon.vue";
-import AppButton from "@/ui/components/AppButton.vue";
+import AppIcon from "@/core-ui/components/AppIcon.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
 import { TweetCreateModal } from "@/features/tweet-create";
 import { ref } from "vue";
 const modalVisible = ref(false);

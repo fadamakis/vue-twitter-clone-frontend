@@ -1,8 +1,8 @@
 <script setup>
-import AppIcon from "@/ui/components/AppIcon.vue";
-import AppButton from "@/ui/components/AppButton.vue";
-import AppInput from "@/ui/components/AppInput.vue";
-import AppNotification from "@/ui/components/AppNotification.vue";
+import AppIcon from "@/core-ui/components/AppIcon.vue";
+import AppButton from "@/core-ui/components/AppButton.vue";
+import AppInput from "@/core-ui/components/AppInput.vue";
+import AppNotification from "@/core-ui/components/AppNotification.vue";
 import { ref, reactive } from "vue";
 import { registerApiCall, useAuth } from "@/features/auth";
 
