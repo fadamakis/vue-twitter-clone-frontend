@@ -16,7 +16,7 @@ export default function () {
         const activeUser = await validateSessionApiCall();
         setUser(activeUser);
       } else {
-        router.push("/login");
+        await router.push("/login");
       }
     } catch (_) {
       logout();
