@@ -5,13 +5,15 @@ import router from "@/router";
 import { Vue3Mq } from "vue3-mq";
 import { useAuth } from "@/features/auth";
 
-await useAuth().initializeUserSession();
+useAuth()
+  .initializeUserSession()
+  .then(() => {
+    const app = createApp(App);
 
-const app = createApp(App);
+    app.use(Vue3Mq);
+    app.use(router);
 
-app.use(Vue3Mq);
-app.use(router);
-
-router.isReady().then(() => {
-  app.mount("#app");
-});
+    router.isReady().then(() => {
+      app.mount("#app");
+    });
+  });
