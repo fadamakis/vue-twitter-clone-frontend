@@ -38,6 +38,8 @@ async function handleSubmit() {
     <AppInput
       v-model="userInfo.username"
       placeholder="Username"
+      name="username"
+      autocomplete="username"
       required
       :has-error="formError.fields?.includes('username')"
     >
@@ -50,6 +52,8 @@ async function handleSubmit() {
       v-model="userInfo.password"
       placeholder="password"
       type="password"
+      name="password"
+      autocomplete="current-password"
       :has-error="formError.fields?.includes('password')"
     >
       <template #prefix>

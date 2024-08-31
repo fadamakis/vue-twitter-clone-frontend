@@ -40,6 +40,8 @@ async function handleSubmit() {
     <AppInput
       v-model="userInfo.name"
       placeholder="Full Name"
+      name="name"
+      autocomplete="name"
       required
       :has-error="formError.fields?.includes('name')"
     >
@@ -52,6 +54,8 @@ async function handleSubmit() {
     <AppInput
       v-model="userInfo.username"
       placeholder="Username"
+      name="username"
+      autocomplete="username"
       required
       :has-error="formError.fields?.includes('username')"
     >
@@ -64,6 +68,8 @@ async function handleSubmit() {
       v-model="userInfo.email"
       placeholder="email"
       type="email"
+      name="email"
+      autocomplete="email"
       required
       :has-error="formError.fields?.includes('email')"
     >
@@ -76,6 +82,8 @@ async function handleSubmit() {
       v-model="userInfo.password"
       placeholder="password"
       type="password"
+      name="password"
+      autocomplete="new-password"
       :has-error="formError.fields?.includes('password')"
     >
       <template #prefix>
