@@ -63,9 +63,13 @@ To set up the project locally:
    ```
 3. Set up the environment variables:
    - Copy `.env.example` to `.env` and adjust the values as needed.
-4. Start the development server:
+4. Seed the database, if necessary:
    ```bash
-   pnpm dev
+   pnpm seed
+   ```
+5. Start the development server:
+   ```bash
+   pnpm run dev
    ```
 
 ## Pull Request Guidelines

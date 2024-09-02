@@ -2,6 +2,8 @@
 
 > A Twitter clone built with Vue.js that allows users to create accounts, post tweets, follow other users, and interact with posts through likes and comments. This project aims to replicate the core functionalities of Twitter.
 
+![Screenshot of the project](uploads/screenshot.png)
+
 ## Table of Contents
 
 - [Vue Twitter Clone - Frontend](#vue-twitter-clone---frontend)
